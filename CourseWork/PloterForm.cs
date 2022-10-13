@@ -9,71 +9,45 @@ using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Data.SqlClient;
 
 namespace CourseWork
 {
     public partial class PloterForm : Form
     {
-        public Ploter ThePloter;
-        public PloterForm(Ploter p)
-        {
-            ThePloter = p;
-
-            InitializeComponent();
-        }
+        DataBase database = new DataBase();
         public PloterForm()
         {
             InitializeComponent();
         }
-        void error_message(string text_message)
-        {
-            MessageBox.Show(text_message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
         private void button1_Click(object sender, EventArgs e)
         {
+            database.openConnection();
 
-            /*ThePloter.Name = textBox1.Text.Trim();
-            ThePloter.Country = textBox2.Text.Trim();
-            ThePloter.Model = textBox3.Text.Trim();
+            var name = textBox1.Text;
+            var country = textBox2.Text;
+            var model = textBox3.Text;
+
+            var winSup = checkBox1.Checked;
+            var macSup = checkBox2.Checked;
 
             int countColors;
-            if (int.TryParse(textBox4.Text.Trim(), out countColors))
+            int weight;
+            int price;
+            if (int.TryParse(textBox4.Text, out countColors) && int.TryParse(textBox5.Text, out weight) && int.TryParse(textBox5.Text, out price))
             {
-                ThePloter.CountColors = countColors;
-            }
-            else
-            {
-                error_message("Неправильно введене число!");
-                textBox4.Focus(); return;
-            }
+                var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
 
-            int w;
-            if (int.TryParse(textBox5.Text.Trim(), out w))
-            {
-                ThePloter.Weight = w;
-            }
-            else
-            {
-                error_message("Неправильно введене число!");
-                textBox5.Focus(); return;
-            }
-            double pr;
-            if (double.TryParse(textBox6.Text.Trim(), out pr))
-            {
-                ThePloter.Price = pr;
-            }
-            else
-            {
-                error_message("Неправильно введене число!");
-                textBox6.Focus(); return;
-            }
-            ThePloter.WinSupport = checkBox1.ThreeState;
-            ThePloter.MacSupport = checkBox2.ThreeState;*/
-            button1.DialogResult = DialogResult.OK;
-            AcceptButton = button1;
-            button2.DialogResult = DialogResult.Cancel;
-            CancelButton = button2;
+                var command = new SqlCommand(addQuery, database.getConnection());
+                command.ExecuteNonQuery();
 
+                MessageBox.Show("Записали", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Перевірте правильність значень", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            database.closeConnection();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -83,17 +57,10 @@ namespace CourseWork
 
         private void PloterForm_Load(object sender, EventArgs e)
         {
-            if (ThePloter != null)
-            {
-                textBox1.Text = ThePloter.Name;
-                textBox2.Text = ThePloter.Country;
-                textBox3.Text = ThePloter.Model;
-                textBox4.Text = ThePloter.CountColors.ToString("0");
-                textBox5.Text = ThePloter.Weight.ToString("0");
-                textBox6.Text = ThePloter.Price.ToString("0.00");
-                checkBox1.Checked = ThePloter.WinSupport;
-                checkBox2.Checked = ThePloter.MacSupport;
-            }
+            button1.DialogResult = DialogResult.OK;
+            AcceptButton = button1;
+            button2.DialogResult = DialogResult.Cancel;
+            CancelButton = button2;
 
         }
 

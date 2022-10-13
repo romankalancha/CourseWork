@@ -61,10 +61,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnOpenFromText = new System.Windows.Forms.ToolStripButton();
             this.btnSaveAsText = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFilter = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tscbSortBy = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -82,11 +78,23 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tb_Price = new System.Windows.Forms.TextBox();
+            this.tb_Weight = new System.Windows.Forms.TextBox();
+            this.tb_CountColors = new System.Windows.Forms.TextBox();
+            this.tb_Model = new System.Windows.Forms.TextBox();
+            this.tb_Country = new System.Windows.Forms.TextBox();
+            this.tb_Name = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsMenuDataGrid.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip3
@@ -232,10 +240,6 @@
             this.toolStripSeparator3,
             this.btnOpenFromText,
             this.btnSaveAsText,
-            this.toolStripSeparator4,
-            this.btnFilter,
-            this.toolStripLabel1,
-            this.tscbSortBy,
             this.toolStripSeparator5,
             this.toolStripLabel2,
             this.tstbSearch,
@@ -257,6 +261,7 @@
             this.btnEdit.Image = global::CourseWork.Properties.Resources.edit;
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // toolStripSeparator1
             // 
@@ -269,6 +274,7 @@
             this.btnDel.Image = global::CourseWork.Properties.Resources.minus;
             resources.ApplyResources(this.btnDel, "btnDel");
             this.btnDel.Name = "btnDel";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnClear
             // 
@@ -295,6 +301,7 @@
             this.btnSaveAsBinary.Image = global::CourseWork.Properties.Resources.save_file;
             resources.ApplyResources(this.btnSaveAsBinary, "btnSaveAsBinary");
             this.btnSaveAsBinary.Name = "btnSaveAsBinary";
+            this.btnSaveAsBinary.Click += new System.EventHandler(this.btnSaveAsBinary_Click);
             // 
             // toolStripSeparator3
             // 
@@ -315,36 +322,6 @@
             resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
             this.btnSaveAsText.Name = "btnSaveAsText";
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFilter.Image = global::CourseWork.Properties.Resources.filter;
-            resources.ApplyResources(this.btnFilter, "btnFilter");
-            this.btnFilter.Name = "btnFilter";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
-            // 
-            // tscbSortBy
-            // 
-            this.tscbSortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscbSortBy.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tscbSortBy.Items.AddRange(new object[] {
-            resources.GetString("tscbSortBy.Items"),
-            resources.GetString("tscbSortBy.Items1"),
-            resources.GetString("tscbSortBy.Items2"),
-            resources.GetString("tscbSortBy.Items3")});
-            this.tscbSortBy.Name = "tscbSortBy";
-            resources.ApplyResources(this.tscbSortBy, "tscbSortBy");
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -359,6 +336,8 @@
             // 
             resources.ApplyResources(this.tstbSearch, "tstbSearch");
             this.tstbSearch.Name = "tstbSearch";
+            this.tstbSearch.Click += new System.EventHandler(this.tstbSearch_Click);
+            this.tstbSearch.TextChanged += new System.EventHandler(this.tstbSearch_TextChanged);
             // 
             // btnExit
             // 
@@ -369,6 +348,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.cmsMenuDataGrid;
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
@@ -376,6 +357,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cmsMenuDataGrid
@@ -450,10 +432,87 @@
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
             resources.ApplyResources(this.toolStripStatusLabel4, "toolStripStatusLabel4");
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.tb_Price);
+            this.groupBox1.Controls.Add(this.tb_Weight);
+            this.groupBox1.Controls.Add(this.tb_CountColors);
+            this.groupBox1.Controls.Add(this.tb_Model);
+            this.groupBox1.Controls.Add(this.tb_Country);
+            this.groupBox1.Controls.Add(this.tb_Name);
+            this.groupBox1.Controls.Add(this.button1);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnSave
+            // 
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.Name = "btnSave";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // checkBox2
+            // 
+            resources.ApplyResources(this.checkBox2, "checkBox2");
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // tb_Price
+            // 
+            resources.ApplyResources(this.tb_Price, "tb_Price");
+            this.tb_Price.Name = "tb_Price";
+            this.tb_Price.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // tb_Weight
+            // 
+            resources.ApplyResources(this.tb_Weight, "tb_Weight");
+            this.tb_Weight.Name = "tb_Weight";
+            // 
+            // tb_CountColors
+            // 
+            resources.ApplyResources(this.tb_CountColors, "tb_CountColors");
+            this.tb_CountColors.Name = "tb_CountColors";
+            // 
+            // tb_Model
+            // 
+            resources.ApplyResources(this.tb_Model, "tb_Model");
+            this.tb_Model.Name = "tb_Model";
+            // 
+            // tb_Country
+            // 
+            resources.ApplyResources(this.tb_Country, "tb_Country");
+            this.tb_Country.Name = "tb_Country";
+            // 
+            // tb_Name
+            // 
+            resources.ApplyResources(this.tb_Name, "tb_Name");
+            this.tb_Name.Name = "tb_Name";
+            this.tb_Name.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
@@ -468,6 +527,8 @@
             this.cmsMenuDataGrid.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,13 +551,9 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnOpenFromText;
         private ToolStripButton btnSaveAsText;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripButton btnFilter;
-        private ToolStripLabel toolStripLabel1;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripLabel toolStripLabel2;
         private ToolStripButton btnExit;
-        private ToolStripComboBox tscbSortBy;
         private ToolStripTextBox tstbSearch;
         private ToolStripMenuItem miOpen;
         private ToolStripMenuItem miSave;
@@ -526,5 +583,16 @@
         private ToolStripMenuItem mictDelete;
         private ToolStripSeparator toolStripMenuItem7;
         private ToolStripMenuItem mictExit;
+        private GroupBox groupBox1;
+        private Button button1;
+        private TextBox tb_Name;
+        private TextBox tb_Country;
+        private TextBox tb_Price;
+        private TextBox tb_Weight;
+        private TextBox tb_CountColors;
+        private TextBox tb_Model;
+        private CheckBox checkBox2;
+        private CheckBox checkBox1;
+        private Button btnSave;
     }
 }
