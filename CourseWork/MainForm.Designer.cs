@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.miImport = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,9 +54,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDel = new System.Windows.Forms.ToolStripButton();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnOpenFromBinary = new System.Windows.Forms.ToolStripButton();
-            this.btnSaveAsBinary = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnOpenFromText = new System.Windows.Forms.ToolStripButton();
             this.btnSaveAsText = new System.Windows.Forms.ToolStripButton();
@@ -76,10 +72,19 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btnEdit2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnReload = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tb_Price = new System.Windows.Forms.TextBox();
@@ -88,13 +93,13 @@
             this.tb_Model = new System.Windows.Forms.TextBox();
             this.tb_Country = new System.Windows.Forms.TextBox();
             this.tb_Name = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsMenuDataGrid.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip3
@@ -108,7 +113,6 @@
             // miFile
             // 
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miOpen,
             this.miSave,
             this.toolStripMenuItem2,
             this.miImport,
@@ -119,37 +123,32 @@
             this.miExit});
             this.miFile.Name = "miFile";
             resources.ApplyResources(this.miFile, "miFile");
-            this.miFile.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
-            // 
-            // miOpen
-            // 
-            this.miOpen.Image = global::CourseWork.Properties.Resources.load_from_file;
-            resources.ApplyResources(this.miOpen, "miOpen");
-            this.miOpen.Name = "miOpen";
             // 
             // miSave
             // 
-            this.miSave.Image = global::CourseWork.Properties.Resources.save_file;
+            this.miSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.miSave, "miSave");
             this.miSave.Name = "miSave";
+            this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // miImport
             // 
-            this.miImport.Image = global::CourseWork.Properties.Resources.load_from_file;
+            this.miImport.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.miImport, "miImport");
             this.miImport.Name = "miImport";
+            this.miImport.Click += new System.EventHandler(this.miImport_Click);
             // 
             // miExport
             // 
-            this.miExport.Image = global::CourseWork.Properties.Resources.save_in_file;
+            this.miExport.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.miExport, "miExport");
             this.miExport.Name = "miExport";
+            this.miExport.Click += new System.EventHandler(this.miExport_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -158,7 +157,7 @@
             // 
             // miAbout
             // 
-            this.miAbout.Image = global::CourseWork.Properties.Resources.about;
+            this.miAbout.Image = global::CourseWork.Properties.Resources.about_icon;
             resources.ApplyResources(this.miAbout, "miAbout");
             this.miAbout.Name = "miAbout";
             // 
@@ -169,9 +168,10 @@
             // 
             // miExit
             // 
-            this.miExit.Image = global::CourseWork.Properties.Resources.exit;
+            this.miExit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miExit, "miExit");
             this.miExit.Name = "miExit";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // miOject
             // 
@@ -188,15 +188,17 @@
             // 
             // miAdd
             // 
-            this.miAdd.Image = global::CourseWork.Properties.Resources.add;
+            this.miAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.miAdd, "miAdd");
             this.miAdd.Name = "miAdd";
+            this.miAdd.Click += new System.EventHandler(this.miAdd_Click);
             // 
             // miEdit
             // 
-            this.miEdit.Image = global::CourseWork.Properties.Resources.edit;
+            this.miEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miEdit, "miEdit");
             this.miEdit.Name = "miEdit";
+            this.miEdit.Click += new System.EventHandler(this.miEdit_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -205,13 +207,14 @@
             // 
             // miDelete
             // 
-            this.miDelete.Image = global::CourseWork.Properties.Resources.minus;
+            this.miDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.miDelete, "miDelete");
             this.miDelete.Name = "miDelete";
+            this.miDelete.Click += new System.EventHandler(this.miDelete_Click);
             // 
             // miClear
             // 
-            this.miClear.Image = global::CourseWork.Properties.Resources.delete;
+            this.miClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.miClear, "miClear");
             this.miClear.Name = "miClear";
             // 
@@ -222,9 +225,10 @@
             // 
             // miFilter
             // 
-            this.miFilter.Image = global::CourseWork.Properties.Resources.filter;
+            this.miFilter.Image = global::CourseWork.Properties.Resources.fither_icon;
             resources.ApplyResources(this.miFilter, "miFilter");
             this.miFilter.Name = "miFilter";
+            this.miFilter.Click += new System.EventHandler(this.miFilter_Click);
             // 
             // toolStrip1
             // 
@@ -234,9 +238,6 @@
             this.toolStripSeparator1,
             this.btnDel,
             this.btnClear,
-            this.toolStripSeparator2,
-            this.btnOpenFromBinary,
-            this.btnSaveAsBinary,
             this.toolStripSeparator3,
             this.btnOpenFromText,
             this.btnSaveAsText,
@@ -250,7 +251,7 @@
             // btnAdd
             // 
             this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdd.Image = global::CourseWork.Properties.Resources.add;
+            this.btnAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -258,7 +259,7 @@
             // btnEdit
             // 
             this.btnEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEdit.Image = global::CourseWork.Properties.Resources.edit;
+            this.btnEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -271,7 +272,7 @@
             // btnDel
             // 
             this.btnDel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDel.Image = global::CourseWork.Properties.Resources.minus;
+            this.btnDel.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.btnDel, "btnDel");
             this.btnDel.Name = "btnDel";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
@@ -279,29 +280,10 @@
             // btnClear
             // 
             this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnClear.Image = global::CourseWork.Properties.Resources.delete;
+            this.btnClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.btnClear, "btnClear");
             this.btnClear.Name = "btnClear";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
-            // btnOpenFromBinary
-            // 
-            this.btnOpenFromBinary.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpenFromBinary.Image = global::CourseWork.Properties.Resources.add_file;
-            resources.ApplyResources(this.btnOpenFromBinary, "btnOpenFromBinary");
-            this.btnOpenFromBinary.Name = "btnOpenFromBinary";
-            // 
-            // btnSaveAsBinary
-            // 
-            this.btnSaveAsBinary.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSaveAsBinary.Image = global::CourseWork.Properties.Resources.save_file;
-            resources.ApplyResources(this.btnSaveAsBinary, "btnSaveAsBinary");
-            this.btnSaveAsBinary.Name = "btnSaveAsBinary";
-            this.btnSaveAsBinary.Click += new System.EventHandler(this.btnSaveAsBinary_Click);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // toolStripSeparator3
             // 
@@ -311,16 +293,17 @@
             // btnOpenFromText
             // 
             this.btnOpenFromText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.load_from_file;
+            this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
             this.btnOpenFromText.Name = "btnOpenFromText";
             // 
             // btnSaveAsText
             // 
             this.btnSaveAsText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_in_file;
+            this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
             this.btnSaveAsText.Name = "btnSaveAsText";
+            this.btnSaveAsText.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
             // toolStripSeparator5
             // 
@@ -329,6 +312,7 @@
             // 
             // toolStripLabel2
             // 
+            this.toolStripLabel2.Image = global::CourseWork.Properties.Resources.search_icon;
             this.toolStripLabel2.Name = "toolStripLabel2";
             resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
             // 
@@ -336,15 +320,15 @@
             // 
             resources.ApplyResources(this.tstbSearch, "tstbSearch");
             this.tstbSearch.Name = "tstbSearch";
-            this.tstbSearch.Click += new System.EventHandler(this.tstbSearch_Click);
             this.tstbSearch.TextChanged += new System.EventHandler(this.tstbSearch_TextChanged);
             // 
             // btnExit
             // 
             this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExit.Image = global::CourseWork.Properties.Resources.exit;
+            this.btnExit.Image = global::CourseWork.Properties.Resources.exit_icon;
             resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.Name = "btnExit";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dataGridView1
             // 
@@ -358,7 +342,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cmsMenuDataGrid
             // 
@@ -374,13 +357,17 @@
             // 
             // mictAdd
             // 
-            this.mictAdd.Name = "mictAdd";
+            this.mictAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.mictAdd, "mictAdd");
+            this.mictAdd.Name = "mictAdd";
+            this.mictAdd.Click += new System.EventHandler(this.mictAdd_Click);
             // 
             // mictEdit
             // 
-            this.mictEdit.Name = "mictEdit";
+            this.mictEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.mictEdit, "mictEdit");
+            this.mictEdit.Name = "mictEdit";
+            this.mictEdit.Click += new System.EventHandler(this.mictEdit_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -389,8 +376,10 @@
             // 
             // mictDelete
             // 
-            this.mictDelete.Name = "mictDelete";
+            this.mictDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.mictDelete, "mictDelete");
+            this.mictDelete.Name = "mictDelete";
+            this.mictDelete.Click += new System.EventHandler(this.mictDelete_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -399,42 +388,39 @@
             // 
             // mictExit
             // 
-            this.mictExit.Name = "mictExit";
+            this.mictExit.Image = global::CourseWork.Properties.Resources.exit_icon;
             resources.ApplyResources(this.mictExit, "mictExit");
+            this.mictExit.Name = "mictExit";
+            this.mictExit.Click += new System.EventHandler(this.mictExit_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel4});
+            this.toolStripStatusLabel2});
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             // 
             // toolStripStatusLabel2
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.DoubleClickEnabled = true;
             resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            resources.ApplyResources(this.toolStripStatusLabel3, "toolStripStatusLabel3");
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            resources.ApplyResources(this.toolStripStatusLabel4, "toolStripStatusLabel4");
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.toolStrip2);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.tb_Price);
@@ -443,25 +429,90 @@
             this.groupBox1.Controls.Add(this.tb_Model);
             this.groupBox1.Controls.Add(this.tb_Country);
             this.groupBox1.Controls.Add(this.tb_Name);
-            this.groupBox1.Controls.Add(this.button1);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnEdit2,
+            this.toolStripSeparator2,
+            this.btnReload,
+            this.toolStripSeparator4,
+            this.btnSave});
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
+            this.toolStrip2.Name = "toolStrip2";
+            // 
+            // btnEdit2
+            // 
+            this.btnEdit2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEdit2.Image = global::CourseWork.Properties.Resources.edit_icon;
+            resources.ApplyResources(this.btnEdit2, "btnEdit2");
+            this.btnEdit2.Name = "btnEdit2";
+            this.btnEdit2.Click += new System.EventHandler(this.btnEdit2_Click_1);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // btnReload
+            // 
+            this.btnReload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnReload.Image = global::CourseWork.Properties.Resources.refresh_icon;
+            resources.ApplyResources(this.btnReload, "btnReload");
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click_1);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // btnSave
             // 
+            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // checkBox2
             // 
             resources.ApplyResources(this.checkBox2, "checkBox2");
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -473,7 +524,6 @@
             // 
             resources.ApplyResources(this.tb_Price, "tb_Price");
             this.tb_Price.Name = "tb_Price";
-            this.tb_Price.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // tb_Weight
             // 
@@ -499,14 +549,6 @@
             // 
             resources.ApplyResources(this.tb_Name, "tb_Name");
             this.tb_Name.Name = "tb_Name";
-            this.tb_Name.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -517,6 +559,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip3.ResumeLayout(false);
@@ -529,6 +572,8 @@
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,9 +590,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton btnDel;
         private ToolStripButton btnClear;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripButton btnOpenFromBinary;
-        private ToolStripButton btnSaveAsBinary;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnOpenFromText;
         private ToolStripButton btnSaveAsText;
@@ -555,7 +597,6 @@
         private ToolStripLabel toolStripLabel2;
         private ToolStripButton btnExit;
         private ToolStripTextBox tstbSearch;
-        private ToolStripMenuItem miOpen;
         private ToolStripMenuItem miSave;
         private ToolStripMenuItem miImport;
         private ToolStripMenuItem miExport;
@@ -574,8 +615,6 @@
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripStatusLabel toolStripStatusLabel2;
-        private ToolStripStatusLabel toolStripStatusLabel3;
-        private ToolStripStatusLabel toolStripStatusLabel4;
         private ContextMenuStrip cmsMenuDataGrid;
         private ToolStripMenuItem mictAdd;
         private ToolStripMenuItem mictEdit;
@@ -584,7 +623,6 @@
         private ToolStripSeparator toolStripMenuItem7;
         private ToolStripMenuItem mictExit;
         private GroupBox groupBox1;
-        private Button button1;
         private TextBox tb_Name;
         private TextBox tb_Country;
         private TextBox tb_Price;
@@ -593,6 +631,17 @@
         private TextBox tb_Model;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
-        private Button btnSave;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private ToolStrip toolStrip2;
+        private ToolStripButton btnEdit2;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton btnReload;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripButton btnSave;
     }
 }

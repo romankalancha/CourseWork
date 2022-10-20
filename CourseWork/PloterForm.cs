@@ -34,13 +34,14 @@ namespace CourseWork
             int countColors;
             int weight;
             int price;
-            if (int.TryParse(textBox4.Text, out countColors) && int.TryParse(textBox5.Text, out weight) && int.TryParse(textBox5.Text, out price))
+            if (int.TryParse(textBox4.Text, out countColors) && int.TryParse(textBox5.Text, out weight) && int.TryParse(textBox6.Text, out price))
             {
                 var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
 
                 var command = new SqlCommand(addQuery, database.getConnection());
                 command.ExecuteNonQuery();
 
+                Ploter p = new Ploter(name, country, model, countColors, weight, price, winSup, macSup);
                 MessageBox.Show("Записали", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

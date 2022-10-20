@@ -21,19 +21,45 @@ namespace CourseWork
     }
     public partial class MainForm : Form
     {
-        DataBase database = new DataBase();
-        int selectedRow;
+       DataBase database = new DataBase();
+       List<Ploter> ploters = new List<Ploter>();
+       int selectedRow;
        public MainForm()
         {
             InitializeComponent();
         }
+        private void AddFormOpen()
+        {
+            PloterForm add_form = new PloterForm();
+            add_form.ShowDialog();
+        }
+        private void ExportForm()
+        {
+            ExportForm eForm = new ExportForm(ploters);
+            if (eForm.ShowDialog() == DialogResult.OK)
+            {
+                eForm.Close();
+            }
+        }
+        private void ImportForm()
+        {
+            ImportForm iForm = new ImportForm();
+            if (iForm.ShowDialog() == DialogResult.OK)
+            {
+                iForm.Close();
+                
+            }
+        }
+
         private void CreateColumns()
         {
             dataGridView1.Columns.Add("Name", "Назва");
             dataGridView1.Columns.Add("Country", "Країна");
             dataGridView1.Columns.Add("Model", "Модель");
             dataGridView1.Columns.Add("CountColors", "К-сть Кольорів");
+            dataGridView1.Columns[3].Width = 60;
             dataGridView1.Columns.Add("Weight", "Вага");
+            dataGridView1.Columns[4].Width = 60;
             dataGridView1.Columns.Add("Price", "Ціна");
 
             DataGridViewColumn column = new DataGridViewTextBoxColumn();
@@ -72,9 +98,27 @@ namespace CourseWork
             
         }
 
+        private void CreateOnePloter(IDataRecord record)
+        {
+            Ploter p = new Ploter(
+                record.GetString(0),
+                record.GetString(1),
+                record.GetString(2),
+                record.GetInt32(3),
+                record.GetInt32(4),
+                record.GetInt32(5),
+                record.GetBoolean(6),
+                record.GetBoolean(7)
+                );
+            ploters.Add(p);
+        }
+
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
+            ploters.Clear();
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
 
             string queryString = $"select * from Products";
 
@@ -85,8 +129,10 @@ namespace CourseWork
             while (reader.Read())
             {
                 ReadSingleRow(dgw, reader);
+                CreateOnePloter(reader);
             }
             reader.Close();
+            database.closeConnection();
         }
 
         private void Search(DataGridView dgw)
@@ -109,23 +155,56 @@ namespace CourseWork
             read.Close();
         }
 
-        private void deleteRow()
+        private void Filther(DataGridView dgw, int Min, int Max)
         {
-            int index;
-            if (dataGridView1.CurrentCell.RowIndex != null) 
-                index = dataGridView1.CurrentCell.RowIndex;
-            else 
-                index = dataGridView1.RowCount; 
+            dgw.Rows.Clear();
 
-            dataGridView1.Rows[index].Visible = false;
+            string searchString = $"select * from Products where Price between {Min} and {Max}";
 
-            if (dataGridView1.Rows[index].Cells[0].Value == string.Empty)
+            SqlCommand com = new SqlCommand(searchString, database.getConnection());
+
+            database.openConnection();
+
+            SqlDataReader read = com.ExecuteReader();
+
+            while (read.Read())
             {
-                dataGridView1.Rows[index].Cells[9].Value = RowState.Deleted;
-                return;
+                ReadSingleRow(dgw, read);
             }
 
-            dataGridView1.Rows[index].Cells[9].Value = RowState.Deleted;
+            read.Close();
+        }
+
+        private void deleteRow()
+        {
+            try
+            {
+                int index = dataGridView1.CurrentCell.RowIndex;
+                dataGridView1.Rows[index].Visible = false;
+
+                if (dataGridView1.Rows[index].Cells[0].Value == string.Empty)
+                {
+                    dataGridView1.Rows[index].Cells[9].Value = RowState.Deleted;
+                    return;
+                }
+
+                dataGridView1.Rows[index].Cells[9].Value = RowState.Deleted;
+                generealInfoObj();
+            }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show("Ви не вибрали жодного рядка", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void deleteAll()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Visible = false;
+                dataGridView1.Rows[i].Cells[9].Value = RowState.Deleted;
+            }
+            Update();
         }
 
         private void Update()
@@ -214,83 +293,37 @@ namespace CourseWork
             checkBox2.Checked = false;
 
         }
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void exitApp()
         {
-
+            Application.Exit();
         }
 
-        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        private void generealInfoObj()
         {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            PloterForm add_form = new PloterForm();
-
-            if (add_form.ShowDialog() == DialogResult.OK)
+            if (dataGridView1.Columns.Count > 0)
             {
-           
+                toolStripStatusLabel1.Text = ploters[0].GeneralInfo();
+                toolStripStatusLabel2.Text = ploters[0].PricePerYear();
             }
-
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             CreateColumns();
             RefreshDataGrid(dataGridView1);
+
+            generealInfoObj();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnReload_Click_1(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
             ClearFields();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
-            if (selectedRow > 0)
+            if (selectedRow >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
                 tb_Name.Text = row.Cells[0].Value.ToString();
@@ -301,41 +334,135 @@ namespace CourseWork
                 tb_Price.Text = row.Cells[5].Value.ToString();
                 checkBox1.Checked = Boolean.Parse(row.Cells[6].Value.ToString());
                 checkBox2.Checked = Boolean.Parse(row.Cells[7].Value.ToString());
+
+                toolStripStatusLabel1.Text = ploters[selectedRow].GeneralInfo();
+                toolStripStatusLabel2.Text = ploters[selectedRow].PricePerYear();
             }
             
-        }
-
-
-        private void tstbSearch_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tstbSearch_TextChanged(object sender, EventArgs e)
         {
             Search(dataGridView1);
         }
-
-        private void btnSaveAsBinary_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-
+            deleteAll();
         }
-        
-        private void btnSave_Click(object sender, EventArgs e)
+
+        // SAVING BUTTONS 
+        private void miSave_Click(object sender, EventArgs e)
+        {
+            Update();
+        }
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             Update();
         }
 
+        // SAVING BUTTONS 
+
+        // ADD BUTTONS 
+        private void miAdd_Click(object sender, EventArgs e)
+        {
+            AddFormOpen();
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddFormOpen();
+        }
+
+        private void mictAdd_Click(object sender, EventArgs e)
+        {
+            AddFormOpen();
+        }
+        // ADD BUTTONS 
+
+        // DELETE BUTTONS 
         private void btnDel_Click(object sender, EventArgs e)
         {
             deleteRow();
             ClearFields();
         }
+        private void miDelete_Click(object sender, EventArgs e)
+        {
+            deleteRow();
+            ClearFields();
+        }
+        private void mictDelete_Click(object sender, EventArgs e)
+        {
+            deleteRow();
+            ClearFields();
+        }
 
+        // DELETE BUTTONS 
+
+        // EDIT BUTTONS 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Change();
             ClearFields();
+        }
+        private void mictEdit_Click(object sender, EventArgs e)
+        {
+            Change();
+            ClearFields();
+        }
+
+        private void miEdit_Click(object sender, EventArgs e)
+        {
+            Change();
+            ClearFields();
+        }
+        private void btnEdit2_Click_1(object sender, EventArgs e)
+        {
+            Change();
+            ClearFields();
+        }
+        // EDIT BUTTONS 
+
+        // EXIT BUTTONS 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            exitApp();
+        }
+
+        private void miExit_Click(object sender, EventArgs e)
+        {
+            exitApp();
+        }
+
+        private void mictExit_Click(object sender, EventArgs e)
+        {
+            exitApp();
+        }
+        // EXIT BUTTONS 
+
+        private void miFilter_Click(object sender, EventArgs e)
+        {
+            FiltherForm fForm = new FiltherForm(0,1);
+            if (fForm.ShowDialog() == DialogResult.OK)
+            {
+                int max = fForm.AreaMax;
+                int min = fForm.AreaMin;
+
+                Filther(dataGridView1,min,max); 
+            }
+        }
+
+        private void miExport_Click(object sender, EventArgs e)
+        {
+            ExportForm();
+        }
+
+        private void btnSaveAsText_Click(object sender, EventArgs e)
+        {
+            ExportForm();
+        }
+
+        private void miImport_Click(object sender, EventArgs e)
+        {
+            ImportForm();
         }
     }
 }

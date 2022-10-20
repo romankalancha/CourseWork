@@ -34,7 +34,13 @@ namespace CourseWork
         }
         public string GeneralInfo()
         {
-            return Name + ", " + Model + ", " + Country;
+            return $"Назва: {Name}, Модель: {Model}";
+        }
+
+        public string PricePerYear()
+        {
+            int res = Price / 12;
+            return "Ціна в кредит на 12 місяців: " + res.ToString() + "$";
         }
 
     }
