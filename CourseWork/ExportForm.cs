@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -24,21 +25,29 @@ namespace CourseWork
         }
         private void dataExport_binary(string fileName)
         {
-            using (BinaryWriter binWriter = new BinaryWriter(File.Open(fileName, FileMode.Create)))
+            try
             {
-                for (int i = 0; i < ExportData.Count; i++)
+                using (BinaryWriter binWriter = new BinaryWriter(File.Open(fileName, FileMode.Create)))
                 {
-                    binWriter.Write(ExportData[i].Name.ToString());
-                    binWriter.Write(ExportData[i].Country.ToString());
-                    binWriter.Write(ExportData[i].Model.ToString());
-                    binWriter.Write(ExportData[i].CountColors.ToString());
-                    binWriter.Write(ExportData[i].Weight.ToString());
-                    binWriter.Write(ExportData[i].Price.ToString());
-                    binWriter.Write(ExportData[i].WinSupport.ToString());
-                    binWriter.Write(ExportData[i].MacSupport.ToString());
+                    foreach (var item in ExportData)
+                    {
+                        binWriter.Write(item.Name);
+                        binWriter.Write(item.Country);
+                        binWriter.Write(item.Model);
+                        binWriter.Write(item.CountColors);
+                        binWriter.Write(item.Weight);
+                        binWriter.Write(item.Price);
+                        binWriter.Write(item.WinSupport);
+                        binWriter.Write(item.MacSupport);
+                    }
                 }
+                MessageBox.Show($"Успішно записано у файл '{fileName}'", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show($"Успішно записанор у файл '{fileName}'", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch(SerializationException e) 
+            {
+                MessageBox.Show($"Помилка запису у файл '{fileName}'", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void dataExport_json(string fileName)

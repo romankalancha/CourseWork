@@ -3,20 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics.Metrics;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace CourseWork
 {
     public partial class ImportForm : Form
     {
-        public List<Ploter> importData = new List<Ploter>();
-        List<Ploter> ploters = new List<Ploter>();
-
+        public List<Ploter> importData;
+        public enum dataImportState
+        {
+            addAsNew,
+            Rewrite
+        }
+        public dataImportState dImportState;
         public ImportForm()
         {
             InitializeComponent();
@@ -36,18 +50,74 @@ namespace CourseWork
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     filePath = openFileDialog.FileName;
 
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    string fileExt = Path.GetExtension(openFileDialog.FileName);
+                    if (fileExt == ".json")
                     {
-                        fileContent = reader.ReadToEnd();
+                        var fileStream = openFileDialog.OpenFile();
+                        using (StreamReader reader = new StreamReader(fileStream))
+                        {
+                            fileContent = reader.ReadToEnd();
 
-                        List<Ploter> ploters = JsonConvert.DeserializeObject<List<Ploter>>(fileContent);
+                            importData = JsonConvert.DeserializeObject<List<Ploter>>(fileContent);
+                        }
+                        fileNameLabel.Text = Path.GetFileName(filePath);
+
                     }
+                    else if(fileExt == ".bin")
+                    {
+                        importData = new List<Ploter>();
+                        try
+                        {
+                            using (BinaryReader binReader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+                            {
+                                Ploter ploter;
+                                while(binReader.BaseStream.Position < binReader.BaseStream.Length)
+                                {
+                                    ploter = new Ploter();
+                                    for (int i = 1; i <= 8; i++)
+                                    {
+                                        switch (i)
+                                        {
+                                            case 1:
+                                                ploter.Name = binReader.ReadString();
+                                                break;
+                                            case 2:
+                                                ploter.Country = binReader.ReadString();
+                                                break;
+                                            case 3:
+                                                ploter.Model = binReader.ReadString();
+                                                break;
+                                            case 4:
+                                                ploter.CountColors = binReader.ReadInt32();
+                                                break;
+                                            case 5:
+                                                ploter.Weight = binReader.ReadInt32();
+                                                break;
+                                            case 6:
+                                                ploter.Price = binReader.ReadInt32();
+                                                break;
+                                            case 7:
+                                                ploter.WinSupport = binReader.ReadBoolean();
+                                                break;
+                                            case 8:
+                                                ploter.MacSupport = binReader.ReadBoolean();
+                                                break;
+                                        }
+                                    }
+                                    importData.Add(ploter);
+                                }
+                            }
+                            fileNameLabel.Text = Path.GetFileName(filePath);
+                        }
+                        catch (SerializationException e)
+                        {
+                            MessageBox.Show($"Помилка читання файлу'{filePath}'", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    
+                    
                 }
             }
         }
@@ -55,6 +125,22 @@ namespace CourseWork
         private void button1_Click(object sender, EventArgs e)
         {
             fileDialogOpen();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dImportState = dataImportState.addAsNew;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            dImportState = dataImportState.Rewrite;
+        }
+
+        private void ImportForm_Load(object sender, EventArgs e)
+        {
+            btnOk.DialogResult = DialogResult.OK;
+            AcceptButton = btnOk;
         }
     }
 }

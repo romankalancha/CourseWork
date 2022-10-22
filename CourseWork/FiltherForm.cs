@@ -16,11 +16,8 @@ namespace CourseWork
         public int AreaMin;
         public int AreaMax;
 
-        public FiltherForm(int areaMin, int areaMax)
-        {
-            AreaMin = areaMin;
-            AreaMax = areaMax;
-
+        public FiltherForm()
+        { 
             InitializeComponent();
         }
 
@@ -45,7 +42,6 @@ namespace CourseWork
         private void FiltherForm_Load(object sender, EventArgs e)
         {
             tbMin.Text = AreaMin.ToString("0"); 
-            tbMax.Text = AreaMax.ToString("0");
         }
     }
 }

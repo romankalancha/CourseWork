@@ -129,7 +129,7 @@
             this.miSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.miSave, "miSave");
             this.miSave.Name = "miSave";
-            this.miSave.Click += new System.EventHandler(this.miSave_Click);
+            this.miSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -141,14 +141,14 @@
             this.miImport.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.miImport, "miImport");
             this.miImport.Name = "miImport";
-            this.miImport.Click += new System.EventHandler(this.miImport_Click);
+            this.miImport.Click += new System.EventHandler(this.btnOpenFromText_Click);
             // 
             // miExport
             // 
             this.miExport.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.miExport, "miExport");
             this.miExport.Name = "miExport";
-            this.miExport.Click += new System.EventHandler(this.miExport_Click);
+            this.miExport.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -160,6 +160,7 @@
             this.miAbout.Image = global::CourseWork.Properties.Resources.about_icon;
             resources.ApplyResources(this.miAbout, "miAbout");
             this.miAbout.Name = "miAbout";
+            this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -171,7 +172,7 @@
             this.miExit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miExit, "miExit");
             this.miExit.Name = "miExit";
-            this.miExit.Click += new System.EventHandler(this.miExit_Click);
+            this.miExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // miOject
             // 
@@ -191,14 +192,14 @@
             this.miAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.miAdd, "miAdd");
             this.miAdd.Name = "miAdd";
-            this.miAdd.Click += new System.EventHandler(this.miAdd_Click);
+            this.miAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // miEdit
             // 
             this.miEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miEdit, "miEdit");
             this.miEdit.Name = "miEdit";
-            this.miEdit.Click += new System.EventHandler(this.miEdit_Click);
+            this.miEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -210,7 +211,7 @@
             this.miDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.miDelete, "miDelete");
             this.miDelete.Name = "miDelete";
-            this.miDelete.Click += new System.EventHandler(this.miDelete_Click);
+            this.miDelete.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // miClear
             // 
@@ -296,6 +297,7 @@
             this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
             this.btnOpenFromText.Name = "btnOpenFromText";
+            this.btnOpenFromText.Click += new System.EventHandler(this.btnOpenFromText_Click);
             // 
             // btnSaveAsText
             // 
@@ -340,7 +342,9 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // cmsMenuDataGrid
@@ -360,14 +364,14 @@
             this.mictAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.mictAdd, "mictAdd");
             this.mictAdd.Name = "mictAdd";
-            this.mictAdd.Click += new System.EventHandler(this.mictAdd_Click);
+            this.mictAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // mictEdit
             // 
             this.mictEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.mictEdit, "mictEdit");
             this.mictEdit.Name = "mictEdit";
-            this.mictEdit.Click += new System.EventHandler(this.mictEdit_Click);
+            this.mictEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -379,7 +383,7 @@
             this.mictDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.mictDelete, "mictDelete");
             this.mictDelete.Name = "mictDelete";
-            this.mictDelete.Click += new System.EventHandler(this.mictDelete_Click);
+            this.mictDelete.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // toolStripMenuItem7
             // 
@@ -391,7 +395,7 @@
             this.mictExit.Image = global::CourseWork.Properties.Resources.exit_icon;
             resources.ApplyResources(this.mictExit, "mictExit");
             this.mictExit.Name = "mictExit";
-            this.mictExit.Click += new System.EventHandler(this.mictExit_Click);
+            this.mictExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // statusStrip1
             // 
@@ -450,7 +454,7 @@
             this.btnEdit2.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.btnEdit2, "btnEdit2");
             this.btnEdit2.Name = "btnEdit2";
-            this.btnEdit2.Click += new System.EventHandler(this.btnEdit2_Click_1);
+            this.btnEdit2.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // toolStripSeparator2
             // 
@@ -476,7 +480,7 @@
             this.btnSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.Name = "btnSave";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label6
             // 

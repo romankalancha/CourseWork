@@ -8,9 +8,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Collections.Generic;
+using static CourseWork.ImportForm;
 
 namespace CourseWork
 {
+    enum dataImportState
+    {
+        addAsNew,
+        Rewrite
+    }
     enum RowState
     {
         Existed,
@@ -28,11 +36,19 @@ namespace CourseWork
         {
             InitializeComponent();
         }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            CreateColumns();
+            RefreshDataGrid(dataGridView1);
+
+            generealInfoObj();
+        }
+
         private void AddFormOpen()
         {
             PloterForm add_form = new PloterForm();
             add_form.ShowDialog();
-        }
+        }// FORMS
         private void ExportForm()
         {
             ExportForm eForm = new ExportForm(ploters);
@@ -40,16 +56,18 @@ namespace CourseWork
             {
                 eForm.Close();
             }
-        }
+        }// FORMS 
         private void ImportForm()
         {
             ImportForm iForm = new ImportForm();
             if (iForm.ShowDialog() == DialogResult.OK)
             {
                 iForm.Close();
-                
+               
+                List<Ploter> importData = importData = iForm.importData;
+                addPlotersFromFile(importData, (dataImportState)iForm.dImportState);
             }
-        }
+        }// FORMS 
 
         private void CreateColumns()
         {
@@ -95,11 +113,6 @@ namespace CourseWork
                 record.GetInt32(8),
                 RowState.ModifiedNew
                 );
-            
-        }
-
-        private void CreateOnePloter(IDataRecord record)
-        {
             Ploter p = new Ploter(
                 record.GetString(0),
                 record.GetString(1),
@@ -111,6 +124,7 @@ namespace CourseWork
                 record.GetBoolean(7)
                 );
             ploters.Add(p);
+
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -129,7 +143,6 @@ namespace CourseWork
             while (reader.Read())
             {
                 ReadSingleRow(dgw, reader);
-                CreateOnePloter(reader);
             }
             reader.Close();
             database.closeConnection();
@@ -153,7 +166,11 @@ namespace CourseWork
             }
 
             read.Close();
-        }
+        }// SEARCH IN DataGridView
+        private void tstbSearch_TextChanged(object sender, EventArgs e)
+        {
+            Search(dataGridView1);
+        }// SEARCH IN DataGridView
 
         private void Filther(DataGridView dgw, int Min, int Max)
         {
@@ -173,7 +190,7 @@ namespace CourseWork
             }
 
             read.Close();
-        }
+        }// FILTHER Price
 
         private void deleteRow()
         {
@@ -195,7 +212,7 @@ namespace CourseWork
             {
                 MessageBox.Show("Ви не вибрали жодного рядка", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
+        }//DELETE ONE Row
 
         private void deleteAll()
         {
@@ -205,7 +222,7 @@ namespace CourseWork
                 dataGridView1.Rows[i].Cells[9].Value = RowState.Deleted;
             }
             Update();
-        }
+        }// DELETE ALL ROWS
 
         private void Update()
         {
@@ -251,7 +268,7 @@ namespace CourseWork
                 }
             }
             database.closeConnection();
-        }
+        }//UPDATE Rows by RowState
 
         private void Change()
         {
@@ -278,7 +295,7 @@ namespace CourseWork
                     MessageBox.Show("Перевірте правильність значень", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
+        }// EDIT Rows 
 
         private void ClearFields()
         {
@@ -292,32 +309,51 @@ namespace CourseWork
             checkBox1.Checked = false;
             checkBox2.Checked = false;
 
-        }
-        private void exitApp()
+        }// Clear Edit textBox 
+
+        private void addPlotersFromFile(List<Ploter> importData, dataImportState dataState)
         {
-            Application.Exit();
-        }
+            switch (dataState)
+            {
+                case dataImportState.Rewrite:
+                    deleteAll();
+                    goto case dataImportState.addAsNew;
+                   break;
+                case dataImportState.addAsNew:
+                    database.openConnection();
+                    foreach (var ploter in importData)
+                    {
+                        string name = ploter.Name;
+                        string country = ploter.Country;
+                        string model = ploter.Model;
+                        int countColors = ploter.CountColors;
+                        int weight = ploter.Weight;
+                        int price = ploter.Price;
+                        bool winSup = ploter.WinSupport;
+                        bool macSup = ploter.MacSupport;
+
+                        var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+
+                        var command = new SqlCommand(addQuery, database.getConnection());
+                        command.ExecuteNonQuery();
+
+                        Ploter p = new Ploter(name, country, model, countColors, weight, price, winSup, macSup);
+                    }
+                    database.closeConnection();
+                    RefreshDataGrid(dataGridView1);
+                    ClearFields();
+                    MessageBox.Show("Добавили", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+            }
+        }// IMPORT Rows FROM File
 
         private void generealInfoObj()
         {
-            if (dataGridView1.Columns.Count > 0)
+            if (ploters.Count > 0 )
             {
                 toolStripStatusLabel1.Text = ploters[0].GeneralInfo();
                 toolStripStatusLabel2.Text = ploters[0].PricePerYear();
             }
-        }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            CreateColumns();
-            RefreshDataGrid(dataGridView1);
-
-            generealInfoObj();
-        }
-
-        private void btnReload_Click_1(object sender, EventArgs e)
-        {
-            RefreshDataGrid(dataGridView1);
-            ClearFields();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -341,106 +377,53 @@ namespace CourseWork
             
         }
 
-        private void tstbSearch_TextChanged(object sender, EventArgs e)
+        private void exitApp()
         {
-            Search(dataGridView1);
-        }
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            deleteAll();
-        }
+            Application.Exit();
+        }// EXIT FUNC
 
-        // SAVING BUTTONS 
-        private void miSave_Click(object sender, EventArgs e)
+        // BUTTONS 
+        private void btnSave_Click(object sender, EventArgs e)
         {
             Update();
-        }
-        private void btnSave_Click_1(object sender, EventArgs e)
-        {
-            Update();
-        }
+        }// SAVING BUTTON 
 
-        // SAVING BUTTONS 
-
-        // ADD BUTTONS 
-        private void miAdd_Click(object sender, EventArgs e)
-        {
-            AddFormOpen();
-        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddFormOpen();
-        }
+        }// ADD BUTTON
 
-        private void mictAdd_Click(object sender, EventArgs e)
-        {
-            AddFormOpen();
-        }
-        // ADD BUTTONS 
-
-        // DELETE BUTTONS 
         private void btnDel_Click(object sender, EventArgs e)
         {
             deleteRow();
             ClearFields();
-        }
-        private void miDelete_Click(object sender, EventArgs e)
-        {
-            deleteRow();
-            ClearFields();
-        }
-        private void mictDelete_Click(object sender, EventArgs e)
-        {
-            deleteRow();
-            ClearFields();
-        }
+        }// DELETE BUTTON
 
-        // DELETE BUTTONS 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            deleteAll();
+        }// CLEAR BUTTON
 
-        // EDIT BUTTONS 
+        private void btnReload_Click_1(object sender, EventArgs e)
+        {
+            RefreshDataGrid(dataGridView1);
+            ClearFields();
+        }// RELOAD BUTTON
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Change();
             ClearFields();
-        }
-        private void mictEdit_Click(object sender, EventArgs e)
-        {
-            Change();
-            ClearFields();
-        }
+        }// EDIT BUTTON
 
-        private void miEdit_Click(object sender, EventArgs e)
-        {
-            Change();
-            ClearFields();
-        }
-        private void btnEdit2_Click_1(object sender, EventArgs e)
-        {
-            Change();
-            ClearFields();
-        }
-        // EDIT BUTTONS 
-
-        // EXIT BUTTONS 
         private void btnExit_Click(object sender, EventArgs e)
         {
             exitApp();
-        }
-
-        private void miExit_Click(object sender, EventArgs e)
-        {
-            exitApp();
-        }
-
-        private void mictExit_Click(object sender, EventArgs e)
-        {
-            exitApp();
-        }
-        // EXIT BUTTONS 
+        }// EXIT BUTTON
 
         private void miFilter_Click(object sender, EventArgs e)
         {
-            FiltherForm fForm = new FiltherForm(0,1);
+            FiltherForm fForm = new FiltherForm();
             if (fForm.ShowDialog() == DialogResult.OK)
             {
                 int max = fForm.AreaMax;
@@ -448,21 +431,23 @@ namespace CourseWork
 
                 Filther(dataGridView1,min,max); 
             }
-        }
-
-        private void miExport_Click(object sender, EventArgs e)
-        {
-            ExportForm();
-        }
+        }// FILTHER BUTTON
 
         private void btnSaveAsText_Click(object sender, EventArgs e)
         {
             ExportForm();
-        }
+        }// EXPORT BUTTON
 
-        private void miImport_Click(object sender, EventArgs e)
+        private void btnOpenFromText_Click(object sender, EventArgs e)
         {
             ImportForm();
-        }
+        }// IMPORT BUTTON
+
+        private void miAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Застосунок демонструє виконання курсової роботи\n" +
+                            "з курсу 'Об'єктно-орієнтоване програмування'\n\n" + "Розробив: [КАЛАНЧА Р.Р.]",
+                            "Про програму", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }// ABOUT BUTTON
     }
 }

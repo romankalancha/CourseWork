@@ -20,21 +20,29 @@ namespace CourseWork
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void PloterForm_Load(object sender, EventArgs e)
+        {
+            btnOk.DialogResult = DialogResult.OK;
+            AcceptButton = btnOk;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            CancelButton = btnCancel;
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
         {
             database.openConnection();
 
-            var name = textBox1.Text;
-            var country = textBox2.Text;
-            var model = textBox3.Text;
+            var name = tbName.Text;
+            var country = tbCountry.Text;
+            var model = tbModel.Text;
 
-            var winSup = checkBox1.Checked;
-            var macSup = checkBox2.Checked;
+            var winSup = cbWin.Checked;
+            var macSup = cbMac.Checked;
 
             int countColors;
             int weight;
             int price;
-            if (int.TryParse(textBox4.Text, out countColors) && int.TryParse(textBox5.Text, out weight) && int.TryParse(textBox6.Text, out price))
+            if (int.TryParse(tbCColors.Text, out countColors) && int.TryParse(tbWeight.Text, out weight) && int.TryParse(tbPrice.Text, out price))
             {
                 var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
 
@@ -51,21 +59,7 @@ namespace CourseWork
             database.closeConnection();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PloterForm_Load(object sender, EventArgs e)
-        {
-            button1.DialogResult = DialogResult.OK;
-            AcceptButton = button1;
-            button2.DialogResult = DialogResult.Cancel;
-            CancelButton = button2;
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
