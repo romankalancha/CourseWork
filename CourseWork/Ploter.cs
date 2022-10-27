@@ -36,13 +36,11 @@ namespace CourseWork
         {
             return $"Назва: {Name}, Модель: {Model}";
         }
-
         public string PricePerYear()
         {
-            int res = Price / 12;
-            return "Ціна в кредит на 12 місяців: " + res.ToString() + "$";
+            double res = Price / 12;
+            return "Ціна в кредит на 12 місяців: " + res.ToString() + "₴";
         }
-
     }
 }
 

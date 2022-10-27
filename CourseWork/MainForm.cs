@@ -1,4 +1,4 @@
-using System.Diagnostics.Metrics;
+п»їusing System.Diagnostics.Metrics;
 using System.Diagnostics;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
@@ -68,32 +68,45 @@ namespace CourseWork
                 addPlotersFromFile(importData, (dataImportState)iForm.dImportState);
             }
         }// FORMS 
+        private void miFilter_Click(object sender, EventArgs e)
+        {
+            FiltherForm fForm = new FiltherForm();
+            if (fForm.ShowDialog() == DialogResult.OK)
+            {
+                int max = fForm.AreaMax;
+                int min = fForm.AreaMin;
+
+                Filther(dataGridView1, min, max);
+            }
+        }// FILTHER FORM
 
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("Name", "Назва");
-            dataGridView1.Columns.Add("Country", "Країна");
-            dataGridView1.Columns.Add("Model", "Модель");
-            dataGridView1.Columns.Add("CountColors", "К-сть Кольорів");
+            dataGridView1.Columns.Add("Name", "РќР°Р·РІР°");
+            dataGridView1.Columns.Add("Country", "РљСЂР°С—РЅР°");
+            dataGridView1.Columns.Add("Model", "РњРѕРґРµР»СЊ");
+            dataGridView1.Columns.Add("CountColors", "Рљ-СЃС‚СЊ РљРѕР»СЊРѕСЂС–РІ");
             dataGridView1.Columns[3].Width = 60;
-            dataGridView1.Columns.Add("Weight", "Вага");
-            dataGridView1.Columns[4].Width = 60;
-            dataGridView1.Columns.Add("Price", "Ціна");
+            dataGridView1.Columns.Add("Weight", "Р’Р°РіР° (kg.)");
+            dataGridView1.Columns[4].Width = 50;
+            dataGridView1.Columns.Add("Price", "Р¦С–РЅР° (в‚ґ)");
 
             DataGridViewColumn column = new DataGridViewTextBoxColumn();
             column = new DataGridViewCheckBoxColumn();
             column.DataPropertyName = "WinSupport";
-            column.HeaderText = "Підтримка Windows";
-            column.Width = 60; dataGridView1.Columns.Add(column);
+            column.HeaderText = "РџС–РґС‚СЂРёРјРєР° Windows";
+            column.Width = 75; dataGridView1.Columns.Add(column);
 
             column = new DataGridViewCheckBoxColumn();
             column.DataPropertyName = "MacSupport";
-            column.HeaderText = "Підтримка Mac";
-            column.Width = 60; dataGridView1.Columns.Add(column);
+            column.HeaderText = "РџС–РґС‚СЂРёРјРєР° Mac";
+            column.Width = 75; dataGridView1.Columns.Add(column);
 
             dataGridView1.Columns.Add("id", "ID");
             dataGridView1.Columns.Add("IsNew", String.Empty);
-            
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+
             EventArgs args = new EventArgs(); OnResize(args);
 
 
@@ -106,8 +119,8 @@ namespace CourseWork
                 record.GetString(1), 
                 record.GetString(2), 
                 record.GetInt32(3), 
-                record.GetInt32(4), 
-                record.GetInt32(5), 
+                record.GetInt32(4) + " РљРі.", 
+                string.Format("{0:## ###}", record.GetInt32(5)) + " в‚ґ", 
                 record.GetBoolean(6), 
                 record.GetBoolean(7),
                 record.GetInt32(8),
@@ -131,8 +144,6 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
             ploters.Clear();
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
 
             string queryString = $"select * from Products";
 
@@ -210,7 +221,7 @@ namespace CourseWork
             }
             catch (NullReferenceException e)
             {
-                MessageBox.Show("Ви не вибрали жодного рядка", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Р’Рё РЅРµ РІРёР±СЂР°Р»Рё Р¶РѕРґРЅРѕРіРѕ СЂСЏРґРєР°", "РџРѕРјРёР»РєР°", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }//DELETE ONE Row
 
@@ -236,7 +247,6 @@ namespace CourseWork
                 {
                     continue;
                 }
-                    
 
                 if (rowState == RowState.Deleted)
                 {
@@ -245,7 +255,6 @@ namespace CourseWork
 
                     var command = new SqlCommand(deleteQuery, database.getConnection());
                     command.ExecuteNonQuery();
-
                 }
 
                 if (rowState == RowState.Modified)
@@ -254,16 +263,14 @@ namespace CourseWork
                     var country = dataGridView1.Rows[index].Cells[1].Value.ToString();
                     var model = dataGridView1.Rows[index].Cells[2].Value.ToString();
                     var countColors = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                    var weight = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                    var price = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                    var weight = dataGridView1.Rows[index].Cells[4].Value.ToString().Replace(" РљРі.", "");
+                    var price = dataGridView1.Rows[index].Cells[5].Value.ToString().Replace(" ", "").Replace("в‚ґ", "");
                     var winSup = dataGridView1.Rows[index].Cells[6].Value;
                     var macSup = dataGridView1.Rows[index].Cells[7].Value;
                     var id = dataGridView1.Rows[index].Cells[8].Value;
 
                     var changeQuery = $"update Products set Name='{name}', Country='{country}', Model='{model}', CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' ";
-
                     var command = new SqlCommand(changeQuery,database.getConnection());
-
                     command.ExecuteNonQuery();
                 }
             }
@@ -285,14 +292,14 @@ namespace CourseWork
 
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != String.Empty)
             {
-                if (int.TryParse(tb_CountColors.Text, out countColors) && int.TryParse(tb_Weight.Text, out weight) && int.TryParse(tb_Price.Text, out price))
+                if (int.TryParse(tb_CountColors.Text, out countColors) && int.TryParse(tb_Weight.Text.Replace(" РљРі.", ""), out weight) && int.TryParse(tb_Price.Text.Replace(" ", "").Replace("в‚ґ", ""), out price))
                 {
-                    dataGridView1.Rows[selectedRow].SetValues(name, country, model, countColors, weight, price, winSup, macSup);
+                    dataGridView1.Rows[selectedRow].SetValues(name, country, model, countColors, weight + " РљРі.", string.Format("{0:## ###}", price) + " в‚ґ", winSup, macSup);
                     dataGridView1.Rows[selectedRow].Cells[9].Value = RowState.Modified;
                 }
                 else
                 {
-                    MessageBox.Show("Перевірте правильність значень", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("РџРµСЂРµРІС–СЂС‚Рµ РїСЂР°РІРёР»СЊРЅС–СЃС‚СЊ Р·РЅР°С‡РµРЅСЊ", "РџРѕРјРёР»РєР°", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }// EDIT Rows 
@@ -305,10 +312,8 @@ namespace CourseWork
             tb_CountColors.Text = "";
             tb_Weight.Text = "";
             tb_Price.Text = "";
-
             checkBox1.Checked = false;
             checkBox2.Checked = false;
-
         }// Clear Edit textBox 
 
         private void addPlotersFromFile(List<Ploter> importData, dataImportState dataState)
@@ -333,7 +338,6 @@ namespace CourseWork
                         bool macSup = ploter.MacSupport;
 
                         var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
-
                         var command = new SqlCommand(addQuery, database.getConnection());
                         command.ExecuteNonQuery();
 
@@ -342,7 +346,8 @@ namespace CourseWork
                     database.closeConnection();
                     RefreshDataGrid(dataGridView1);
                     ClearFields();
-                    MessageBox.Show("Добавили", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Р”РѕР±Р°РІРёР»Рё", "РЈСЃРїС–С€РЅРѕ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
         }// IMPORT Rows FROM File
@@ -361,6 +366,7 @@ namespace CourseWork
             selectedRow = e.RowIndex;
             if (selectedRow >= 0)
             {
+
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
                 tb_Name.Text = row.Cells[0].Value.ToString();
                 tb_Country.Text = row.Cells[1].Value.ToString();
@@ -374,7 +380,6 @@ namespace CourseWork
                 toolStripStatusLabel1.Text = ploters[selectedRow].GeneralInfo();
                 toolStripStatusLabel2.Text = ploters[selectedRow].PricePerYear();
             }
-            
         }
 
         private void exitApp()
@@ -421,18 +426,6 @@ namespace CourseWork
             exitApp();
         }// EXIT BUTTON
 
-        private void miFilter_Click(object sender, EventArgs e)
-        {
-            FiltherForm fForm = new FiltherForm();
-            if (fForm.ShowDialog() == DialogResult.OK)
-            {
-                int max = fForm.AreaMax;
-                int min = fForm.AreaMin;
-
-                Filther(dataGridView1,min,max); 
-            }
-        }// FILTHER BUTTON
-
         private void btnSaveAsText_Click(object sender, EventArgs e)
         {
             ExportForm();
@@ -445,9 +438,9 @@ namespace CourseWork
 
         private void miAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Застосунок демонструє виконання курсової роботи\n" +
-                            "з курсу 'Об'єктно-орієнтоване програмування'\n\n" + "Розробив: [КАЛАНЧА Р.Р.]",
-                            "Про програму", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Р—Р°СЃС‚РѕСЃСѓРЅРѕРє РґРµРјРѕРЅСЃС‚СЂСѓС” РІРёРєРѕРЅР°РЅРЅСЏ РєСѓСЂСЃРѕРІРѕС— СЂРѕР±РѕС‚Рё\n" +
+                            "Р· РєСѓСЂСЃСѓ 'РћР±'С”РєС‚РЅРѕ-РѕСЂС–С”РЅС‚РѕРІР°РЅРµ РїСЂРѕРіСЂР°РјСѓРІР°РЅРЅСЏ'\n\n" + "Р РѕР·СЂРѕР±РёРІ: [РљРђР›РђРќР§Рђ Р .Р .]",
+                            "РџСЂРѕ РїСЂРѕРіСЂР°РјСѓ", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }// ABOUT BUTTON
     }
 }
