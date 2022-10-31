@@ -120,7 +120,7 @@ namespace CourseWork
                 record.GetString(2), 
                 record.GetInt32(3), 
                 record.GetInt32(4) + " Кг.", 
-                string.Format("{0:## ###}", record.GetInt32(5)) + " ₴", 
+                string.Format("{0:### ### ###}", record.GetInt32(5)) + " ₴", 
                 record.GetBoolean(6), 
                 record.GetBoolean(7),
                 record.GetInt32(8),
@@ -294,7 +294,7 @@ namespace CourseWork
             {
                 if (int.TryParse(tb_CountColors.Text, out countColors) && int.TryParse(tb_Weight.Text.Replace(" Кг.", ""), out weight) && int.TryParse(tb_Price.Text.Replace(" ", "").Replace("₴", ""), out price))
                 {
-                    dataGridView1.Rows[selectedRow].SetValues(name, country, model, countColors, weight + " Кг.", string.Format("{0:## ###}", price) + " ₴", winSup, macSup);
+                    dataGridView1.Rows[selectedRow].SetValues(name, country, model, countColors, weight + " Кг.", string.Format("{0:### ### ###}", price) + " ₴", winSup, macSup);
                     dataGridView1.Rows[selectedRow].Cells[9].Value = RowState.Modified;
                 }
                 else
