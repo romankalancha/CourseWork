@@ -27,9 +27,11 @@ namespace CourseWork
         ModifiedNew,
         Deleted
     }
+     
     public partial class MainForm : Form
     {
        DataBase database = new DataBase();
+       string TableDB = "Products";
        List<Ploter> ploters = new List<Ploter>();
        int selectedRow;
        public MainForm()
@@ -83,7 +85,7 @@ namespace CourseWork
         private void CreateColumns()
         {
             dataGridView1.Columns.Add("Name", "Назва");
-            dataGridView1.Columns.Add("Country", "Країна");
+            dataGridView1.Columns.Add("Company", "Компанія");
             dataGridView1.Columns.Add("Model", "Модель");
             dataGridView1.Columns.Add("CountColors", "К-сть Кольорів");
             dataGridView1.Columns[3].Width = 60;
@@ -145,7 +147,7 @@ namespace CourseWork
             dgw.Rows.Clear();
             ploters.Clear();
 
-            string queryString = $"select * from Products";
+            string queryString = $"select * from {TableDB}";
 
             SqlCommand command = new SqlCommand(queryString, database.getConnection());
             database.openConnection();
@@ -163,7 +165,7 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from Products where concat (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) like '%" + tstbSearch.Text + "%'";
+            string searchString = $"select * from {TableDB} where concat (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) like '%" + tstbSearch.Text + "%'";
 
             SqlCommand com = new SqlCommand(searchString, database.getConnection());
 
@@ -187,7 +189,7 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from Products where Price between {Min} and {Max}";
+            string searchString = $"select * from {TableDB} where Price between {Min} and {Max}";
 
             SqlCommand com = new SqlCommand(searchString, database.getConnection());
 
@@ -251,7 +253,7 @@ namespace CourseWork
                 if (rowState == RowState.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[8].Value);
-                    var deleteQuery = $"delete from Products where id = {id} ";
+                    var deleteQuery = $"delete from {TableDB} where id = {id} ";
 
                     var command = new SqlCommand(deleteQuery, database.getConnection());
                     command.ExecuteNonQuery();
@@ -260,7 +262,7 @@ namespace CourseWork
                 if (rowState == RowState.Modified)
                 {
                     var name = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                    var country = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                    var company = dataGridView1.Rows[index].Cells[1].Value.ToString();
                     var model = dataGridView1.Rows[index].Cells[2].Value.ToString();
                     var countColors = dataGridView1.Rows[index].Cells[3].Value.ToString();
                     var weight = dataGridView1.Rows[index].Cells[4].Value.ToString().Replace(" Кг.", "");
@@ -269,7 +271,8 @@ namespace CourseWork
                     var macSup = dataGridView1.Rows[index].Cells[7].Value;
                     var id = dataGridView1.Rows[index].Cells[8].Value;
 
-                    var changeQuery = $"update Products set Name='{name}', Country='{country}', Model='{model}', CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' ";
+                    var changeQuery = $"update {TableDB} set Name='{name}', Compsny='{company}', Model='{model}', " +
+                                      $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' ";
                     var command = new SqlCommand(changeQuery,database.getConnection());
                     command.ExecuteNonQuery();
                 }
@@ -282,7 +285,7 @@ namespace CourseWork
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
             var name = tb_Name.Text;
-            var country = tb_Country.Text;
+            var company = tb_Company.Text;
             var model = tb_Model.Text;
             int countColors;
             int weight;
@@ -294,7 +297,7 @@ namespace CourseWork
             {
                 if (int.TryParse(tb_CountColors.Text, out countColors) && int.TryParse(tb_Weight.Text.Replace(" Кг.", ""), out weight) && int.TryParse(tb_Price.Text.Replace(" ", "").Replace("₴", ""), out price))
                 {
-                    dataGridView1.Rows[selectedRow].SetValues(name, country, model, countColors, weight + " Кг.", string.Format("{0:### ### ###}", price) + " ₴", winSup, macSup);
+                    dataGridView1.Rows[selectedRow].SetValues(name, company, model, countColors, weight + " Кг.", string.Format("{0:### ### ###}", price) + " ₴", winSup, macSup);
                     dataGridView1.Rows[selectedRow].Cells[9].Value = RowState.Modified;
                 }
                 else
@@ -307,7 +310,7 @@ namespace CourseWork
         private void ClearFields()
         {
             tb_Name.Text = "";
-            tb_Country.Text = "";
+            tb_Company.Text = "";
             tb_Model.Text = "";
             tb_CountColors.Text = "";
             tb_Weight.Text = "";
@@ -329,7 +332,7 @@ namespace CourseWork
                     foreach (var ploter in importData)
                     {
                         string name = ploter.Name;
-                        string country = ploter.Country;
+                        string company = ploter.Company;
                         string model = ploter.Model;
                         int countColors = ploter.CountColors;
                         int weight = ploter.Weight;
@@ -337,11 +340,11 @@ namespace CourseWork
                         bool winSup = ploter.WinSupport;
                         bool macSup = ploter.MacSupport;
 
-                        var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                        var addQuery = $"insert into {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
                         var command = new SqlCommand(addQuery, database.getConnection());
                         command.ExecuteNonQuery();
 
-                        Ploter p = new Ploter(name, country, model, countColors, weight, price, winSup, macSup);
+                        Ploter p = new Ploter(name, company, model, countColors, weight, price, winSup, macSup);
                     }
                     database.closeConnection();
                     RefreshDataGrid(dataGridView1);
@@ -369,7 +372,7 @@ namespace CourseWork
 
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
                 tb_Name.Text = row.Cells[0].Value.ToString();
-                tb_Country.Text = row.Cells[1].Value.ToString();
+                tb_Company.Text = row.Cells[1].Value.ToString();
                 tb_Model.Text = row.Cells[2].Value.ToString();
                 tb_CountColors.Text = row.Cells[3].Value.ToString();
                 tb_Weight.Text = row.Cells[4].Value.ToString();
@@ -426,6 +429,7 @@ namespace CourseWork
             exitApp();
         }// EXIT BUTTON
 
+
         private void btnSaveAsText_Click(object sender, EventArgs e)
         {
             ExportForm();
@@ -442,5 +446,10 @@ namespace CourseWork
                             "з курсу 'Об'єктно-орієнтоване програмування'\n\n" + "Розробив: [КАЛАНЧА Р.Р.]",
                             "Про програму", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }// ABOUT BUTTON
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

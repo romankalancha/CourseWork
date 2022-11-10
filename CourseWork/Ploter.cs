@@ -9,7 +9,7 @@ namespace CourseWork
     public class Ploter
     {
         public string Name { get; set; }
-        public string Country { get; set; }
+        public string Company { get; set; }
         public string Model { get; set; }
         public int CountColors { get; set; }
         public int Weight { get; set; }
@@ -21,10 +21,10 @@ namespace CourseWork
         {
         }
 
-        public Ploter(string name, string country, string model, int countColors, int weight, int price, bool winSup, bool macSup)
+        public Ploter(string name, string company, string model, int countColors, int weight, int price, bool winSup, bool macSup)
         {
             Name = name; 
-            Country = country;
+            Company = company;
             Model = model;
             CountColors = countColors;
             Weight = weight;

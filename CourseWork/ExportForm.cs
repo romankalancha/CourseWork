@@ -32,7 +32,7 @@ namespace CourseWork
                     foreach (var item in ExportData)
                     {
                         binWriter.Write(item.Name);
-                        binWriter.Write(item.Country);
+                        binWriter.Write(item.Company);
                         binWriter.Write(item.Model);
                         binWriter.Write(item.CountColors);
                         binWriter.Write(item.Weight);

@@ -33,7 +33,7 @@
             this.tbWeight = new System.Windows.Forms.TextBox();
             this.tbCColors = new System.Windows.Forms.TextBox();
             this.tbModel = new System.Windows.Forms.TextBox();
-            this.tbCountry = new System.Windows.Forms.TextBox();
+            this.tbCompany = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.groupBox1.Controls.Add(this.tbWeight);
             this.groupBox1.Controls.Add(this.tbCColors);
             this.groupBox1.Controls.Add(this.tbModel);
-            this.groupBox1.Controls.Add(this.tbCountry);
+            this.groupBox1.Controls.Add(this.tbCompany);
             this.groupBox1.Controls.Add(this.tbName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -100,12 +100,12 @@
             this.tbModel.Size = new System.Drawing.Size(100, 23);
             this.tbModel.TabIndex = 8;
             // 
-            // tbCountry
+            // tbCompany
             // 
-            this.tbCountry.Location = new System.Drawing.Point(109, 68);
-            this.tbCountry.Name = "tbCountry";
-            this.tbCountry.Size = new System.Drawing.Size(100, 23);
-            this.tbCountry.TabIndex = 7;
+            this.tbCompany.Location = new System.Drawing.Point(109, 68);
+            this.tbCompany.Name = "tbCompany";
+            this.tbCompany.Size = new System.Drawing.Size(100, 23);
+            this.tbCompany.TabIndex = 7;
             // 
             // tbName
             // 
@@ -158,11 +158,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(59, 71);
+            this.label2.Location = new System.Drawing.Point(42, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 15);
+            this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Країна";
+            this.label2.Text = "Компанія";
             // 
             // label1
             // 
@@ -269,7 +269,7 @@
         private TextBox tbWeight;
         private TextBox tbCColors;
         private TextBox tbModel;
-        private TextBox tbCountry;
+        private TextBox tbCompany;
         private TextBox tbName;
     }
 }

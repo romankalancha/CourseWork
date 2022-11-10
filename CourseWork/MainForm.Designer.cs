@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +60,7 @@
             this.btnSaveAsText = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.btnBack = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmsMenuDataGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mictAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +91,7 @@
             this.tb_Weight = new System.Windows.Forms.TextBox();
             this.tb_CountColors = new System.Windows.Forms.TextBox();
             this.tb_Model = new System.Windows.Forms.TextBox();
-            this.tb_Country = new System.Windows.Forms.TextBox();
+            this.tb_Company = new System.Windows.Forms.TextBox();
             this.tb_Name = new System.Windows.Forms.TextBox();
             this.menuStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -246,12 +246,11 @@
             this.btnSaveAsText,
             this.toolStripLabel2,
             this.tstbSearch,
-            this.btnExit});
+            this.btnBack});
             this.toolStrip1.Name = "toolStrip1";
             // 
             // btnAdd
             // 
-            this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
@@ -259,7 +258,6 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.btnEdit, "btnEdit");
             this.btnEdit.Name = "btnEdit";
@@ -267,7 +265,6 @@
             // 
             // btnDel
             // 
-            this.btnDel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnDel.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.btnDel, "btnDel");
             this.btnDel.Name = "btnDel";
@@ -275,7 +272,6 @@
             // 
             // btnClear
             // 
-            this.btnClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.btnClear, "btnClear");
             this.btnClear.Name = "btnClear";
@@ -283,7 +279,6 @@
             // 
             // btnOpenFromText
             // 
-            this.btnOpenFromText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
             this.btnOpenFromText.Name = "btnOpenFromText";
@@ -291,7 +286,6 @@
             // 
             // btnSaveAsText
             // 
-            this.btnSaveAsText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
             this.btnSaveAsText.Name = "btnSaveAsText";
@@ -309,13 +303,13 @@
             this.tstbSearch.Name = "tstbSearch";
             this.tstbSearch.TextChanged += new System.EventHandler(this.tstbSearch_TextChanged);
             // 
-            // btnExit
+            // btnBack
             // 
-            this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExit.Image = global::CourseWork.Properties.Resources.exit_icon;
-            resources.ApplyResources(this.btnExit, "btnExit");
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnBack.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.btnBack, "btnBack");
+            this.btnBack.Image = global::CourseWork.Properties.Resources.back_icon;
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dataGridView1
             // 
@@ -323,28 +317,28 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(156)))), ((int)(((byte)(148)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(156)))), ((int)(((byte)(148)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(231)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(146)))), ((int)(((byte)(183)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(231)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(146)))), ((int)(((byte)(183)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.cmsMenuDataGrid;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(231)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(231)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(28)))));
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
@@ -443,7 +437,7 @@
             this.groupBox1.Controls.Add(this.tb_Weight);
             this.groupBox1.Controls.Add(this.tb_CountColors);
             this.groupBox1.Controls.Add(this.tb_Model);
-            this.groupBox1.Controls.Add(this.tb_Country);
+            this.groupBox1.Controls.Add(this.tb_Company);
             this.groupBox1.Controls.Add(this.tb_Name);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
@@ -556,10 +550,10 @@
             resources.ApplyResources(this.tb_Model, "tb_Model");
             this.tb_Model.Name = "tb_Model";
             // 
-            // tb_Country
+            // tb_Company
             // 
-            resources.ApplyResources(this.tb_Country, "tb_Country");
-            this.tb_Country.Name = "tb_Country";
+            resources.ApplyResources(this.tb_Company, "tb_Company");
+            this.tb_Company.Name = "tb_Company";
             // 
             // tb_Name
             // 
@@ -571,6 +565,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
@@ -610,7 +605,6 @@
         private ToolStripButton btnOpenFromText;
         private ToolStripButton btnSaveAsText;
         private ToolStripLabel toolStripLabel2;
-        private ToolStripButton btnExit;
         private ToolStripTextBox tstbSearch;
         private ToolStripMenuItem miSave;
         private ToolStripMenuItem miImport;
@@ -639,7 +633,7 @@
         private ToolStripMenuItem mictExit;
         private GroupBox groupBox1;
         private TextBox tb_Name;
-        private TextBox tb_Country;
+        private TextBox tb_Company;
         private TextBox tb_Price;
         private TextBox tb_Weight;
         private TextBox tb_CountColors;
@@ -658,5 +652,6 @@
         private ToolStripButton btnReload;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btnSave;
+        private ToolStripButton btnBack;
     }
 }

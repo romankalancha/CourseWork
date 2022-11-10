@@ -16,6 +16,7 @@ namespace CourseWork
     public partial class PloterForm : Form
     {
         DataBase database = new DataBase();
+        string TableDB = "Products";
         public PloterForm()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace CourseWork
             database.openConnection();
 
             var name = tbName.Text;
-            var country = tbCountry.Text;
+            var company = tbCompany.Text;
             var model = tbModel.Text;
 
             var winSup = cbWin.Checked;
@@ -44,12 +45,12 @@ namespace CourseWork
             int price;
             if (int.TryParse(tbCColors.Text, out countColors) && int.TryParse(tbWeight.Text, out weight) && int.TryParse(tbPrice.Text, out price))
             {
-                var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                var addQuery = $"insert into {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
 
                 var command = new SqlCommand(addQuery, database.getConnection());
                 command.ExecuteNonQuery();
 
-                Ploter p = new Ploter(name, country, model, countColors, weight, price, winSup, macSup);
+                Ploter p = new Ploter(name, company, model, countColors, weight, price, winSup, macSup);
                 MessageBox.Show("Записали", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

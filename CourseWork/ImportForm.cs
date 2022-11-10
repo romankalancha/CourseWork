@@ -84,7 +84,7 @@ namespace CourseWork
                                                 ploter.Name = binReader.ReadString();
                                                 break;
                                             case 2:
-                                                ploter.Country = binReader.ReadString();
+                                                ploter.Company = binReader.ReadString();
                                                 break;
                                             case 3:
                                                 ploter.Model = binReader.ReadString();
