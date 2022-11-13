@@ -1,0 +1,943 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="menuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>12, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="miSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="miSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="miSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miSave.Text" xml:space="preserve">
+    <value>Зберегти…</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 6</value>
+  </data>
+  <data name="miAbout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miAbout.Text" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 6</value>
+  </data>
+  <data name="miExit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miExit.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+X</value>
+  </data>
+  <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miExit.Text" xml:space="preserve">
+    <value>Вихід</value>
+  </data>
+  <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 20</value>
+  </data>
+  <data name="miFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="miAdd.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="miAdd.Text" xml:space="preserve">
+    <value>Додати…</value>
+  </data>
+  <data name="miEdit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="miEdit.Text" xml:space="preserve">
+    <value>Змінити…</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 6</value>
+  </data>
+  <data name="miDelete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="miDelete.Text" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="miClear.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="miClear.Text" xml:space="preserve">
+    <value>Очистити всі</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 6</value>
+  </data>
+  <data name="miOject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="miOject.Text" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="menuStrip3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>761, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="menuStrip3.Text" xml:space="preserve">
+    <value>menuStrip3</value>
+  </data>
+  <data name="&gt;&gt;menuStrip3.Name" xml:space="preserve">
+    <value>menuStrip3</value>
+  </data>
+  <data name="&gt;&gt;menuStrip3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>120, 23</value>
+  </metadata>
+  <data name="toolStrip1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolStrip1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="btnAdd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnAdd.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 22</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnAdd.ToolTipText" xml:space="preserve">
+    <value>Добавити запис</value>
+  </data>
+  <data name="btnEdit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnEdit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 22</value>
+  </data>
+  <data name="btnEdit.Text" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="btnEdit.ToolTipText" xml:space="preserve">
+    <value>Редагувати запис</value>
+  </data>
+  <data name="btnDel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnDel.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnDel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 22</value>
+  </data>
+  <data name="btnDel.Text" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="btnDel.ToolTipText" xml:space="preserve">
+    <value>Видалити запис</value>
+  </data>
+  <data name="btnClear.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnClear.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 22</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>Очистити</value>
+  </data>
+  <data name="btnClear.ToolTipText" xml:space="preserve">
+    <value>Очистити дані</value>
+  </data>
+  <data name="toolStripLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="toolStripLabel2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="toolStripLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 22</value>
+  </data>
+  <data name="toolStripLabel2.Text" xml:space="preserve">
+    <value>Знайти </value>
+  </data>
+  <data name="toolStripLabel2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>TextBeforeImage</value>
+  </data>
+  <data name="tstbSearch.MaxLength" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tstbSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 25</value>
+  </data>
+  <data name="btnBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnBack.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 22</value>
+  </data>
+  <data name="btnBack.Text" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="btnBack.ToolTipText" xml:space="preserve">
+    <value>Вийти з програми</value>
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>752, 25</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="cmsMenuDataGrid.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>341, 23</value>
+  </metadata>
+  <data name="mictAdd.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="mictAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="mictAdd.Text" xml:space="preserve">
+    <value>Додати…</value>
+  </data>
+  <data name="mictEdit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="mictEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="mictEdit.Text" xml:space="preserve">
+    <value>Змінити…</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 6</value>
+  </data>
+  <data name="mictDelete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="mictDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="mictDelete.Text" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 6</value>
+  </data>
+  <data name="mictExit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="mictExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="mictExit.Text" xml:space="preserve">
+    <value>Вихід</value>
+  </data>
+  <data name="cmsMenuDataGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 104</value>
+  </data>
+  <data name="&gt;&gt;cmsMenuDataGrid.Name" xml:space="preserve">
+    <value>cmsMenuDataGrid</value>
+  </data>
+  <data name="&gt;&gt;cmsMenuDataGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 52</value>
+  </data>
+  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 363</value>
+  </data>
+  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
+    <value>dataGridView1</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tb_Description.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 178</value>
+  </data>
+  <data name="tb_Description.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tb_Description.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="tb_Description.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 179</value>
+  </data>
+  <data name="tb_Description.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;tb_Description.Name" xml:space="preserve">
+    <value>tb_Description</value>
+  </data>
+  <data name="&gt;&gt;tb_Description.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_Description.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tb_Description.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>494, 23</value>
+  </metadata>
+  <data name="btnReload.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnReload.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnReload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="btnReload.Text" xml:space="preserve">
+    <value>toolStripButton2</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="btnEdit2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnEdit2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnEdit2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="btnEdit2.Text" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt, style=Bold</value>
+  </data>
+  <data name="btnSave.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Transparent</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 25</value>
+  </data>
+  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 25</value>
+  </data>
+  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="toolStrip2.Text" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14pt, style=Bold</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 141</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 25</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14pt, style=Bold</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 57</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 25</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tb_Name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>179, 53</value>
+  </data>
+  <data name="tb_Name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 29</value>
+  </data>
+  <data name="tb_Name.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tb_Name.Name" xml:space="preserve">
+    <value>tb_Name</value>
+  </data>
+  <data name="&gt;&gt;tb_Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_Name.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tb_Name.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>434, 52</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 363</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Редагування</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>79</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>761, 423</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        9//bHoG7YlLON9V1A4XwwABMS1c86teWtxuEpFfy/l3j7dF2stPspKNlAEJ4YgA5mvJpy2NkAELIAGQA
+        QsgAZABCyABkAELIAGQAQsgAZABCyABkAELIAGQAQsgAZABCyABkAELIAGQAQsgAZABCyABkAELIAGQA
+        QsgAhBAyACGEDEAIIQMQQsgAhBAyACGEDEAIIQMQQsgAhBAyACFkADIAIWQAMgAhZAAyACFkADIAIWQA
+        MgAhZAAyACFkADIAIWQAMgAhZAAyACFkADIAIWQAMgAhZAAyACFkADIAIWQAMgAhZAAyACFkADIAIWQA
+        MgAhZAAyACFkADIAIWQAMgAhZAAyACFkADIAIWQAMgAhZAAyACFkADIAIWQAMgAhZAAyACFkAEIIGYAQ
+        QgYghJABCCFkAEIIGYAQQgYghJABCCHKsAFE2ck+KwMQwlMDeMavrSAYwCJraR4aQIyd7Id20tVkAEJ4
+        YgBxpqnlpq0aHmrfp/nFZgBZM+wvEzw0gP5wZRZEXWX+IoQ4GAPA16LuhX5vmLaGeWgA40z7w6zzlIfA
+        XeZdv0nTYYj1Gf2aDEAILzKA6GW4a0aZtpZ6p1PXFJLXmAFsbmRO8LN3HSfXh1s7QtUGMgAhvMgAqg6C
+        2zuZtgZ6p9OsB2Hj69b56njI7OxdxymHwchNUO1wGYAQXhhAtfPg/qqmrXO902mm9ftTmP3P8saQvtK7
+        jnevhiczocbqnJPXTRTiwMXva3Gt4Zk42NPGO52mW1axdL3VF/Pft46TPHSWO3FzE3G1e/rrFxmAEAdm
+        ANl5BlD7YfjvFNPW+97pdM9j8GmadT69Bey62cPZxQ/g+37QaKoyACEOwgBcngE0tvT/h69NW9u8k+mu
+        2vDyNXaQMbfAjlBvlxdstrLi9L4Q1kUGIMRBGIAL+w+0f8M0Nc1bjSaNh1G+OYCrrW25z9vOd7wFN5pj
+        VRntdzAtCBLiAEf/qjXg1gcg+WRvNbqlOlw53g5w5kbY9J23naddj3vpFVx8vP8XydYNFeLA6v/4x+HV
+        Caapn73V6Kbr4IyL7ADNY2H1pR4vMf4BVr0CR463X+RhlQFC7KcB4DcBS/1b3QM/WUnNOm8l+nMfaJps
+        BzrkZfjgcsj8wOOXgtbCoLoQHZ47GRii2yrE3xJ/SI5monvDkBOtXm/lrTYzB8H7bU37x1mtEZuBG3s/
+        7Orq7UHSE3FvbsXVfVSPA4XYz9HfPwFYdxJuVnfIONRbbaYkwug9EOubA4gcD72Oh61Pe/9q8Mb5cPbd
+        UPk1ZQFC/K3Jv9zRv/Jo6DLONHS097rcGo3ruRQXkVWJ9ErHwBGLYc1wD4/gchcbbMI9Vw1X64qCWU3d
+        ZCH+dOT366RWOky7CdKaF9aUF/zSDVpMZXGl8LyVRtfCHCsBMhK9d5vfpkCnneZoVZUFCPEXtb8/9a/c
+        y0Z/S/3XJ3ivx4wr4e2ZZjAr/INx7rPG3TC0Iew83/ssIH0szLgL6n9WsLZZN1uIvUb//NbAyvE3zzLt
+        4OHon9tH8le4O4bgql7nX5+T4zih/aBdfxut6xAUEifBwFFQ5VqZgBB/Jv6qpsEh82FL/+BocZ2J/4TX
+        yQ5tVmAA/gPXCYe3rDbIiPQ+C8hOhqXPw4n3mtncoVJAiCKpv7/+Dx1qA/FkWPa9SSfO+9o/3QbhGZaJ
+        174kf4VugQFE/wsG3wJJDYLjPHt24V7/AdfkeHbmO55MQFRs8efN+vs04RrPwb12hGnli+BocPs9uKv/
+        i4tampP5F5yET4xTcUcOxv3gexrwUJBO4Cm4bxzUejjfeJxMQFTwSb+cifjWMGqTaeT14GiPG+D7vnDE
+        s2RWuqzQ+zkF645rVIeJt0HqaI8PnpfGbIaNI+C6FhD7v4DHHjIBUUHTfl+r0Rp3g438m1r6dtTxPvX3
+        kdoMxp9nupuy1xxcgQuFmgOd0hvWDAiCA2Xn/mk1zpptuL4NofqqAvORCYgKJn5/q2566zsV1v5m2ng7
+        OOJnI/xSD056Gxf67j5X5hacUM0bYcqhZkRPBuFkcvtyWbB6CQzoCXHXFp4FVYCIciv8Ii0uHvo9AT83
+        NU1sDZ7edrfBPR6Ni/umUO2/18nlbEDQHk5bC7/+SnA5Gda1hZut5ql7hh3/vryT07yAKN+jfqUxFvOz
+        4ZZk08Bg00JUcKX26x2409LIDuv2hwZQuBSIvxmenm/OkRBkE3gHNn8AE+zEmn+Lq3yUsgFRroTvio76
+        lc+CFsfBoxbrCceaBr4PrsR2d4KpZjLxcX+5OY//kUTOwqBUOKUz/Og7wXODVJcE9Je8B/fej7gOV0Fs
+        LzvRe/Ozgewc5xSiDKb7gaN+G6v3H4UOafC+ldc7L9jH/JjX2qpl/lIH2s0xTT//t7Lrgkm56hfCsBaQ
+        tDqI9hRgAhnPWi3UBEaa4TR/BRf1RkFZUtCEKPUjflrAiO/PAKI+wjV9H4ZajP90jcX6wn1rwGuSInB3
+        NcZVG567wch+pSzn2Ul3wX2cBFmXB/FkA/u8E3bMhfmn4vpfhWuUgYv+BxGVQveeQFGwiVI02mcEDFS+
+        n9dUCofoc6BxR7jqXdx8K3WTUizGewVZ/Ll9ZmbAhw/DYUvZZdnH/gygBe4VscrO1zrcWKt4HCuPrKmw
+        JQn36c24wSdDs0+sNNgE4ZcVdlYZgiix9H7fzYXfYbG62WJ2JQzeBvMs9d/azmL6v8HXTaA218+GCxtC
+        xID9XnAXsErP915yb5j4udUsdxTvL+A3AnPQ7eNgxWEwyQyg+/PQxLKBmh1xVTZC5Uw7z/GFnNepqQWx
+        FR58xlsMWpxWsTis2ddicxmce4nFqv284nCL3Zcshq+i2En+BsZHQ/wzgQPmgT62+BFaJMPcs6x2mVlM
+        v0ERI3D2c6q5auIJdmH7wEvX4G5OhK6NoI39cvVX4ep0MrOah4u/DFezAS5ul7XdamoetF05MWWx5Y+x
+        OmdD/R0WezYYdT0ebhljMWliWxlvMTrYYjUxJ2b/LKaDRcbRuPficc19c2gfH9Qiu4BHFzdABzOA71rY
+        75ERpJnLv4ulU2nXwo7frUyoBxvslFYkWLkQCbMb4V6fi3vhQty07tauUFPzoHXPiSmLLWY3tFhrbGIf
+        a6VxHYvBBhaLJu60Wyw2u5eQJnK16NbbecXh2r+Aq9z8oPfiLPKe8kQYYL/wprHF72p/yY2Wal1p7vcp
+        pF9qN6M+7EmxtltNzYOWkhNTvtjyxZg/rR9TSmI/QIObhsMgy06qfhxYqni4gqn2IfCQud+2rqXQBISo
+        aARob1s/3NhfcbUb+59IePmmbYAJtIWGluY8MdTSnq9lAkKUBvEnW2ky9RNoFJr/yM/rl+usw9BcVxkA
+        h18ML62AXUfLBIQoSfGn1sVNPxfXdLPp88XcpxWhQV7aGNIbWm6FNy0LSB0kExCiJMS/uye8cxeudUOy
+        QqbljfxBWxNT6FkooaPh6PYw81hIiZUJCFGc4k/JxM1Kwf0jzrSYGbgGphhXQYV2xDXfjXu2MSRdKhMQ
+        ojjEv+MWmPa+ZeELyA5dnrfOv9jelSm0Giqr0lJck+dwj54DW+7WfRIimGz5EJ6YBYf1tVL8yMDVicX/
+        1lNm/p+dcfWHwUhLRdalQvZ/lA0I4eWon70HfmsDw9+F+gtMd7d69qz/oDKB7PydTVtCnIn/4lHwZRbs
+        uUH3TwgvSDsLlqyES++Emo1Ma5H5k/Il/Yp87okEvK4bVRd3fHfcq+Nh2047+y+UDQhxIKM+M2H72TDD
+        Mup20yG6csAcXGipegO20IrB7NAzcY2ft3RlC/x8rDnYU7qvQuwP6T1MOxPh3u+gSRUInRUg/tK5Z2aR
+        1yYtbYk9Cs6wv79yGmx+w+qYY3VjhfgzsudD4gYb9U+GDjNMQ4NMS0eXmX0v9toLzYVdBoechbt8LCy0
+        rGDH/yzLGakbLUShzL+PaeN7+PJ+3OAhUH8UhH0TOOqXqU1vCjYYzTOCqPug5WIYNgD39Wj7ZU8wt3v9
+        T+ofIcp7je/78XTTQiIs+wjuMZG3fBJXJbLITkNld5v8fCPwm0BIZYhZi2tpNc1tncztFsB2M4bMfyou
+        RMUi8xCL/SWw9E64+wETfphp4wHTyppy932M3O29Ax3tSah6LTT7DnfdUHhvB2xsDSnXW1ZwjIJDlNP6
+        PhVS28CmKrj3LoJrbdRv9q4Jv4lp4vl8fWSV0x2w99pAMbPSxbjobVB3K5z2MoxchFu4CDYnmRncBhkb
+        FDSibJOxzmL5fEjoAl+ZATxsGW+nGrhDLL6j59vAeGyF29y20M6++S8XhZ1hTpiMa9QV120L3PcZzDkF
+        1lwCW0fbRfwa0u1iZX+ioBKldIR/0WK0rsXqkpyYXdPbYriZxXJV6GYG0CgDqs/CVT6h0K7WOyvwNy+K
+        fD0l1xTCLT2q1hZqPwZHZEMvKw8e6ASvvY5b1BN+nWCOWhO2mZvusJJhp/1/U6ZZetUcdk+CPcutpVXA
+        ravMONPGWiBWt2ic52Fkz8vp09e37xgV7rqm5cSUL7Z8MeaLNV/M+WJv272WsWb5v7/H/56B6fbfP3C0
+        xexRObFbe6LFcm2L6ZP2Gvj0Dcy9lhUXyQr8X1lpCREv2EW00iC+laVOMXD4v6xkmAuXpsD1h8DdXWF0
+        exh/K0wNxz0/BDftpoq3eeXzv+OmV4FfTs41Aa9Gtur+Pn19+49R4TYFvckfU77Y8seYL9Z8MXd9PYvB
+        ny0WG1hMnmqlrMVjfKzF6kJ/zPpjt4jos/UNi/2bOCz6AZCCksGcONLct4plCjGWRVQzk4htATUew8V9
+        ay294m1fXWMx7vAZOSaQNtY7A7C+/OL39e07RoXbFjzdH1O+2PLHmC/WfDHni73IoRaL1ff9kZBifk23
+        wprCvi58hW0+gdoo7U/VvcL68o/8vr4r+EdB/izmJHZR8kuxfSOWpa3+2tUzA8jp09+3rrMQMgAhhAxA
+        CCEDEELIAIQQMgAhKoTgCNgY1ZWWx5Dl+DFg0eubqUU1oqSEv9dz4HAbdWNiIHawjZSzrWVqIZBnLdN/
+        TYkdYtc42q51l33dAyGKI80O3OhkFlR10ORQXPdb4O5nYeI/cM+9YCnzCC0F9qyN8F9TJh5r19iMrdty
+        aLzdrv1GuwdvaW29KK6RP2Crs/BHoPl5FpADYemZkGii29kaUgdbyvyutQy9DORZy8i5pr5ru/NIu9aW
+        aS0ZB3eZ+JvXt3vRp1zsniPKRNofBVVGwdmHmS4mwI4O4G7Xq7DFjX8PvXjcp/NwZy2xe/LPgC9YywRE
+        EAzAn/ZH94ReYbAiFbKaSYglTVak3Yt34KIpdm/uL/Gv5YjynPqH3Q2npuCWPmMp8QiJr9RsxDEdvo7F
+        ndEeF7ZW8wEiSOl/vW9g5h6rhZMkutJG+o24WW1x9V8rkY9livIu/sgb4dK6kNBHYiutJIzC9b4eF9lL
+        ZYDw2ADiu8ArNW30T8+bhZLgSs+MYO56hfnw0od2r7Q2QHhtAM2Og5+OkNZKO6tWQ9N+MgDhjQH4J5R8
+        k39nWGAl1JbASjub18Ppd9g966R5AOFRBhDRGy7sDFsHSGClna1nwgU97J4drwxAeGUAvqB6xYLrPAms
+        1BtAHVzPVriIKGUAwqsS4AorAVrk7P8uSnkJ8CbutJfIDmsuAxBeTgLWg5+qS2Clmj2wyoy66bGaBBRe
+        PwY8Gl7uC2nr9Biw1D4GnAkvpkDNDTIA4Z0B+MsA3+KS3n0goZb0VmrT/59wlzxi9+pkLQQS3s4D5CwF
+        fhDeeMFGms8kttJGmo36b/SwezRQS4GF1waQ9zKQZQCnHopb2g2yB0p0pSHt95E9AZa9DafH4MKe1ctA
+        InilANE14MJX4dtdkLlaOixpMufbvVhk96S93ZsueR+ZFSJIk4GVwqFKc9xZU3Cf2t+T1thg1FFCLPYE
+        wASf9CR80hU6rzXx72JuvlFr9BdBMYHALcE645qdj7vzV1i8AhIsG9gZA6nnwp5Z1jLLwHfvy0rLzLmm
+        qSb25GS71vPsmj8EdzwHzSLsXhylLcFE8c0HFGwK+gSuqqWfjT+Gbg3grg9hgm8Dy4dx00aWge/el5Vm
+        1/K5R+zaDrFrHAVdz7drHgZVR9s9mKRNQUXJlAOB+9X7R6GqiRB7Hi7ubWtZZeC792WlZfmvKbHd7Bp/
+        A+HVtS24KB1GkFHaPgxSjhv7bkIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBC
+        CCGEEEIIUUb5P9t5EIOS75reAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Курсовий Проект</value>
+  </data>
+  <data name="&gt;&gt;miFile.Name" xml:space="preserve">
+    <value>miFile</value>
+  </data>
+  <data name="&gt;&gt;miFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miSave.Name" xml:space="preserve">
+    <value>miSave</value>
+  </data>
+  <data name="&gt;&gt;miSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miAbout.Name" xml:space="preserve">
+    <value>miAbout</value>
+  </data>
+  <data name="&gt;&gt;miAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
+    <value>toolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miExit.Name" xml:space="preserve">
+    <value>miExit</value>
+  </data>
+  <data name="&gt;&gt;miExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miOject.Name" xml:space="preserve">
+    <value>miOject</value>
+  </data>
+  <data name="&gt;&gt;miOject.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miAdd.Name" xml:space="preserve">
+    <value>miAdd</value>
+  </data>
+  <data name="&gt;&gt;miAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miEdit.Name" xml:space="preserve">
+    <value>miEdit</value>
+  </data>
+  <data name="&gt;&gt;miEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
+    <value>toolStripMenuItem4</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miDelete.Name" xml:space="preserve">
+    <value>miDelete</value>
+  </data>
+  <data name="&gt;&gt;miDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClear.Name" xml:space="preserve">
+    <value>miClear</value>
+  </data>
+  <data name="&gt;&gt;miClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
+    <value>toolStripMenuItem5</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Name" xml:space="preserve">
+    <value>btnEdit</value>
+  </data>
+  <data name="&gt;&gt;btnEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDel.Name" xml:space="preserve">
+    <value>btnDel</value>
+  </data>
+  <data name="&gt;&gt;btnDel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClear.Name" xml:space="preserve">
+    <value>btnClear</value>
+  </data>
+  <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Name" xml:space="preserve">
+    <value>toolStripLabel2</value>
+  </data>
+  <data name="&gt;&gt;toolStripLabel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tstbSearch.Name" xml:space="preserve">
+    <value>tstbSearch</value>
+  </data>
+  <data name="&gt;&gt;tstbSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBack.Name" xml:space="preserve">
+    <value>btnBack</value>
+  </data>
+  <data name="&gt;&gt;btnBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mictAdd.Name" xml:space="preserve">
+    <value>mictAdd</value>
+  </data>
+  <data name="&gt;&gt;mictAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mictEdit.Name" xml:space="preserve">
+    <value>mictEdit</value>
+  </data>
+  <data name="&gt;&gt;mictEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
+    <value>toolStripMenuItem6</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mictDelete.Name" xml:space="preserve">
+    <value>mictDelete</value>
+  </data>
+  <data name="&gt;&gt;mictDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
+    <value>toolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mictExit.Name" xml:space="preserve">
+    <value>mictExit</value>
+  </data>
+  <data name="&gt;&gt;mictExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnReload.Name" xml:space="preserve">
+    <value>btnReload</value>
+  </data>
+  <data name="&gt;&gt;btnReload.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEdit2.Name" xml:space="preserve">
+    <value>btnEdit2</value>
+  </data>
+  <data name="&gt;&gt;btnEdit2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ModelForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
