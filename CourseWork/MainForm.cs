@@ -1,23 +1,12 @@
-﻿using System.Diagnostics.Metrics;
-using System.Diagnostics;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Data.SqlClient;
 using System.Data;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using System.Collections.Generic;
-using static CourseWork.ImportForm;
 
 namespace CourseWork
 {
     enum dataImportState
     {
         addAsNew,
-        Rewrite
+        rewrite
     }
     enum RowState
     {
@@ -31,7 +20,7 @@ namespace CourseWork
     public partial class MainForm : Form
     {
        DataBase database = new DataBase();
-       string TableDB = "Products";
+       string TableDB = "dbo.ploter";
        List<Ploter> ploters = new List<Ploter>();
        int selectedRow;
        public MainForm()
@@ -271,7 +260,7 @@ namespace CourseWork
                     var macSup = dataGridView1.Rows[index].Cells[7].Value;
                     var id = dataGridView1.Rows[index].Cells[8].Value;
 
-                    var changeQuery = $"update {TableDB} set Name='{name}', Compsny='{company}', Model='{model}', " +
+                    var changeQuery = $"update {TableDB} set Name='{name}', Company='{company}', Model='{model}', " +
                                       $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' ";
                     var command = new SqlCommand(changeQuery,database.getConnection());
                     command.ExecuteNonQuery();
@@ -323,7 +312,7 @@ namespace CourseWork
         {
             switch (dataState)
             {
-                case dataImportState.Rewrite:
+                case dataImportState.rewrite:
                     deleteAll();
                     goto case dataImportState.addAsNew;
                    break;
@@ -449,7 +438,9 @@ namespace CourseWork
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            var startForm = Application.OpenForms.Cast<Form>().FirstOrDefault(c => c is StartForm);
+            startForm.Show();
         }
     }
 }

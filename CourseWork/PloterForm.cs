@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Globalization;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace CourseWork
 {
     public partial class PloterForm : Form
     {
         DataBase database = new DataBase();
-        string TableDB = "Products";
+        string TableDB = "ploter";
+        
+        string TableDB_2 = "dbo.Сompanies";
+        string TableDB_3 = "dbo.Models";
         public PloterForm()
         {
             InitializeComponent();
@@ -43,14 +35,25 @@ namespace CourseWork
             int countColors;
             int weight;
             int price;
+
+
             if (int.TryParse(tbCColors.Text, out countColors) && int.TryParse(tbWeight.Text, out weight) && int.TryParse(tbPrice.Text, out price))
             {
-                var addQuery = $"insert into {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
-
-                var command = new SqlCommand(addQuery, database.getConnection());
+                string addQuery =
+                    $"INSERT INTO {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup)" +
+                    $" VALUES ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                SqlCommand command = new SqlCommand(addQuery, database.getConnection());
                 command.ExecuteNonQuery();
 
-                Ploter p = new Ploter(name, company, model, countColors, weight, price, winSup, macSup);
+                string queryString = "SELECT IDENT_CURRENT('dbo.ploter')";
+                command = new SqlCommand(queryString, database.getConnection());
+                int id_ploter = command.ExecuteScalar().GetHashCode();
+                command.ExecuteNonQuery();
+
+                addQuery = $"INSERT INTO dbo.company (Name, fk_id_company) VALUES ('{company}', '{id_ploter}')" +
+                           $"INSERT INTO dbo.ploterModel (Name, fk_id_model) VALUES ('{model}', '{id_ploter}')";
+                command = new SqlCommand(addQuery, database.getConnection());
+                command.ExecuteNonQuery();
                 MessageBox.Show("Записали", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
