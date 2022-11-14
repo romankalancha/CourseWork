@@ -557,6 +557,7 @@
             // 
             // tb_Name
             // 
+            this.tb_Name.BackColor = System.Drawing.SystemColors.WindowFrame;
             resources.ApplyResources(this.tb_Name, "tb_Name");
             this.tb_Name.Name = "tb_Name";
             // 

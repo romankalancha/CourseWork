@@ -5,7 +5,7 @@ namespace CourseWork
     public partial class PloterForm : Form
     {
         DataBase database = new DataBase();
-        string TableDB = "ploter";
+        string TableDB = "dbo.ploter";
         
         string TableDB_2 = "dbo.Сompanies";
         string TableDB_3 = "dbo.Models";

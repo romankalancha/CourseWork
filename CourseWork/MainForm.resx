@@ -132,7 +132,7 @@
     <value>Transparent</value>
   </data>
   <data name="miAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="miAdd.Text" xml:space="preserve">
     <value>Додати…</value>
@@ -141,19 +141,19 @@
     <value>Transparent</value>
   </data>
   <data name="miEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="miEdit.Text" xml:space="preserve">
     <value>Змінити…</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>147, 6</value>
   </data>
   <data name="miDelete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
   <data name="miDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="miDelete.Text" xml:space="preserve">
     <value>Видалити</value>
@@ -162,19 +162,19 @@
     <value>Transparent</value>
   </data>
   <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="miClear.Text" xml:space="preserve">
     <value>Очистити всі</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>147, 6</value>
   </data>
   <data name="miFilter.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Transparent</value>
   </data>
   <data name="miFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>150, 22</value>
   </data>
   <data name="miFilter.Text" xml:space="preserve">
     <value>Фільтрувати…</value>

@@ -71,7 +71,7 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string queryString = $"select * from {TableDB}";
+            string queryString = $"SELECT * FROM {TableDB}";
 
             SqlCommand command = new SqlCommand(queryString, database.getConnection());
             database.openConnection();
@@ -89,7 +89,7 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from {TableDB} where concat (Name, Description) like '%" + tstbSearch.Text + "%'";
+            string searchString = $"SELECT * FROM {TableDB} WHERE CONCAT (Name, Description) LIKE '%" + tstbSearch.Text + "%'";
 
             SqlCommand com = new SqlCommand(searchString, database.getConnection());
 
@@ -156,7 +156,7 @@ namespace CourseWork
                 if (rowState == RowState.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[2].Value);
-                    var deleteQuery = $"delete from {TableDB} where id = {id} ";
+                    var deleteQuery = $"DELETE FROM {TableDB} WHERE id = {id} ";
 
                     var command = new SqlCommand(deleteQuery, database.getConnection());
                     command.ExecuteNonQuery();
@@ -168,7 +168,7 @@ namespace CourseWork
                     var description = dataGridView1.Rows[index].Cells[1].Value.ToString();
                     var id = dataGridView1.Rows[index].Cells[2].Value;
 
-                    var changeQuery = $"update {TableDB} set Name='{name}', Description='{description}', where id = '{id}' ";
+                    var changeQuery = $"UPDATE {TableDB} SET Name='{name}', Description='{description}', WHERE id = '{id}' ";
                     var command = new SqlCommand(changeQuery,database.getConnection());
                     command.ExecuteNonQuery();
                 }
@@ -215,7 +215,7 @@ namespace CourseWork
                         bool winSup = ploter.WinSupport;
                         bool macSup = ploter.MacSupport;
 
-                        var addQuery = $"insert into {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                        var addQuery = $"INSERT INTO {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) VALUES ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
                         var command = new SqlCommand(addQuery, database.getConnection());
                         command.ExecuteNonQuery();
 
@@ -238,7 +238,7 @@ namespace CourseWork
 
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
                 tb_Name.Text = row.Cells[0].Value.ToString();
-                tb_Description.Text = row.Cells[2].Value.ToString();
+                tb_Description.Text = row.Cells[1].Value.ToString();
             }
         }
 

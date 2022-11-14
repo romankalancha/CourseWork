@@ -21,6 +21,8 @@ namespace CourseWork
     {
        DataBase database = new DataBase();
        string TableDB = "dbo.ploter";
+       string TableDB_company = "dbo.company";
+       string TableDB_model = "dbo.ploterModel";
        List<Ploter> ploters = new List<Ploter>();
        int selectedRow;
        public MainForm()
@@ -261,7 +263,9 @@ namespace CourseWork
                     var id = dataGridView1.Rows[index].Cells[8].Value;
 
                     var changeQuery = $"update {TableDB} set Name='{name}', Company='{company}', Model='{model}', " +
-                                      $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' ";
+                                            $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' " +
+                                            $"UPDATE {TableDB_company} SET Name='{company}' WHERE fk_id_company= '{id}'" +
+                                            $"UPDATE {TableDB_model} SET Name='{model}' WHERE fk_id_model='{id}'";
                     var command = new SqlCommand(changeQuery,database.getConnection());
                     command.ExecuteNonQuery();
                 }
