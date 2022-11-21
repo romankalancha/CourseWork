@@ -30,12 +30,12 @@
         { 
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.fileNameLabel = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnSelectFile = new System.Windows.Forms.Button();
             this.rbRewrite = new System.Windows.Forms.RadioButton();
             this.rbAddAsNew = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.fileNameLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметри імпорту";
             // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.AutoSize = true;
+            this.fileNameLabel.Location = new System.Drawing.Point(224, 25);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(0, 21);
+            this.fileNameLabel.TabIndex = 7;
+            // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(224, 83);
@@ -67,6 +75,7 @@
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnSelectFile
             // 
@@ -110,14 +119,6 @@
             this.label1.Size = new System.Drawing.Size(139, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Імпортувати як: ";
-            // 
-            // fileNameLabel
-            // 
-            this.fileNameLabel.AutoSize = true;
-            this.fileNameLabel.Location = new System.Drawing.Point(224, 25);
-            this.fileNameLabel.Name = "fileNameLabel";
-            this.fileNameLabel.Size = new System.Drawing.Size(0, 21);
-            this.fileNameLabel.TabIndex = 7;
             // 
             // ImportForm
             // 

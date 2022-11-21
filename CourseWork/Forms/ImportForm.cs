@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CourseWork.Classes;
+using Newtonsoft.Json;
 using System.Runtime.Serialization;
 
 namespace CourseWork
@@ -26,7 +27,7 @@ namespace CourseWork
             {
                 openFileDialog.InitialDirectory = "C:\\Users\\ta4we\\source\\repos\\CourseWork\\CourseWork\\bin\\Debug\\net6.0-windows";
                 openFileDialog.Filter = "Json Files (*.json)|*.json|Binary Files (*.bin)|*.bin";
-                openFileDialog.FilterIndex = 2;
+                openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -122,6 +123,11 @@ namespace CourseWork
         {
             btnOk.DialogResult = DialogResult.OK;
             AcceptButton = btnOk;
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

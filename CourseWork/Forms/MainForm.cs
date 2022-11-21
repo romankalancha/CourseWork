@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
+using CourseWork.Classes;
 
 namespace CourseWork
 {
@@ -11,7 +12,6 @@ namespace CourseWork
     enum RowState
     {
         Existed,
-        New,
         Modified,
         ModifiedNew,
         Deleted
@@ -25,6 +25,7 @@ namespace CourseWork
        string TableDB_model = "dbo.ploterModel";
        List<Ploter> ploters = new List<Ploter>();
        int selectedRow;
+
        public MainForm()
         {
             InitializeComponent();
@@ -33,8 +34,6 @@ namespace CourseWork
         {
             CreateColumns();
             RefreshDataGrid(dataGridView1);
-
-            generealInfoObj();
         }
 
         private void AddFormOpen()
@@ -97,8 +96,8 @@ namespace CourseWork
 
             dataGridView1.Columns.Add("id", "ID");
             dataGridView1.Columns.Add("IsNew", String.Empty);
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[8].Visible = true;
+            dataGridView1.Columns[9].Visible = true;
 
             EventArgs args = new EventArgs(); OnResize(args);
 
@@ -130,7 +129,6 @@ namespace CourseWork
                 record.GetBoolean(7)
                 );
             ploters.Add(p);
-
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -138,7 +136,7 @@ namespace CourseWork
             dgw.Rows.Clear();
             ploters.Clear();
 
-            string queryString = $"select * from {TableDB}";
+            string queryString = $"SELECT * FROM {TableDB}";
 
             SqlCommand command = new SqlCommand(queryString, database.getConnection());
             database.openConnection();
@@ -156,13 +154,13 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from {TableDB} where concat (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) like '%" + tstbSearch.Text + "%'";
+            string searchString = $"SELECT * FROM {TableDB} WHERE CONCAT (Name, Company, Model, CountColors, Weight, Price) LIKE '%" + tstbSearch.Text + "%'";
 
-            SqlCommand com = new SqlCommand(searchString, database.getConnection());
+            SqlCommand command = new SqlCommand(searchString, database.getConnection());
 
             database.openConnection();
 
-            SqlDataReader read = com.ExecuteReader();
+            SqlDataReader read = command.ExecuteReader();
 
             while (read.Read())
             {
@@ -180,13 +178,13 @@ namespace CourseWork
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from {TableDB} where Price between {Min} and {Max}";
+            string searchString = $"SELECT * FROM {TableDB} WHERE Price BETWEEN {Min} AND {Max}";
 
-            SqlCommand com = new SqlCommand(searchString, database.getConnection());
+            SqlCommand command = new SqlCommand(searchString, database.getConnection());
 
             database.openConnection();
 
-            SqlDataReader read = com.ExecuteReader();
+            SqlDataReader read = command.ExecuteReader();
 
             while (read.Read())
             {
@@ -210,11 +208,10 @@ namespace CourseWork
                 }
 
                 dataGridView1.Rows[index].Cells[9].Value = RowState.Deleted;
-                generealInfoObj();
             }
             catch (NullReferenceException e)
             {
-                MessageBox.Show("Ви не вибрали жодного рядка", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ви не вибрали жодного рядка\n Виберіть рядок для видалення", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }//DELETE ONE Row
 
@@ -244,7 +241,7 @@ namespace CourseWork
                 if (rowState == RowState.Deleted)
                 {
                     var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[8].Value);
-                    var deleteQuery = $"delete from {TableDB} where id = {id} ";
+                    var deleteQuery = $"DELETE FROM {TableDB} WHERE id = {id} ";
 
                     var command = new SqlCommand(deleteQuery, database.getConnection());
                     command.ExecuteNonQuery();
@@ -262,8 +259,8 @@ namespace CourseWork
                     var macSup = dataGridView1.Rows[index].Cells[7].Value;
                     var id = dataGridView1.Rows[index].Cells[8].Value;
 
-                    var changeQuery = $"update {TableDB} set Name='{name}', Company='{company}', Model='{model}', " +
-                                            $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' where id = '{id}' " +
+                    var changeQuery = $"UPDATE {TableDB} SET Name='{name}', Company='{company}', Model='{model}', " +
+                                            $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' WHERE id = '{id}' " +
                                             $"UPDATE {TableDB_company} SET Name='{company}' WHERE fk_id_company= '{id}'" +
                                             $"UPDATE {TableDB_model} SET Name='{model}' WHERE fk_id_model='{id}'";
                     var command = new SqlCommand(changeQuery,database.getConnection());
@@ -333,8 +330,19 @@ namespace CourseWork
                         bool winSup = ploter.WinSupport;
                         bool macSup = ploter.MacSupport;
 
-                        var addQuery = $"insert into {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                        var addQuery = $"INSERT INTO {TableDB} (Name, Company, Model, CountColors, Weight, Price, WinSup, MacSup) " +
+                                             $"VALUES ('{name}', '{company}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
                         var command = new SqlCommand(addQuery, database.getConnection());
+                        command.ExecuteNonQuery();
+
+                        string queryString = $"SELECT IDENT_CURRENT('{TableDB}')";
+                        command = new SqlCommand(queryString, database.getConnection());
+                        int id_ploter = command.ExecuteScalar().GetHashCode();
+                        command.ExecuteNonQuery();
+
+                        addQuery = $"INSERT INTO {TableDB_company} (Name, fk_id_company) VALUES ('{company}', '{id_ploter}')" +
+                                   $"INSERT INTO {TableDB_model} (Name, fk_id_model) VALUES ('{model}', '{id_ploter}')";
+                        command = new SqlCommand(addQuery, database.getConnection());
                         command.ExecuteNonQuery();
 
                         Ploter p = new Ploter(name, company, model, countColors, weight, price, winSup, macSup);
@@ -348,15 +356,6 @@ namespace CourseWork
             }
         }// IMPORT Rows FROM File
 
-        private void generealInfoObj()
-        {
-            if (ploters.Count > 0 )
-            {
-                toolStripStatusLabel1.Text = ploters[0].GeneralInfo();
-                toolStripStatusLabel2.Text = ploters[0].PricePerYear();
-            }
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
@@ -368,13 +367,10 @@ namespace CourseWork
                 tb_Company.Text = row.Cells[1].Value.ToString();
                 tb_Model.Text = row.Cells[2].Value.ToString();
                 tb_CountColors.Text = row.Cells[3].Value.ToString();
-                tb_Weight.Text = row.Cells[4].Value.ToString();
-                tb_Price.Text = row.Cells[5].Value.ToString();
+                tb_Weight.Text = row.Cells[4].Value.ToString().Replace(" Кг.", "");
+                tb_Price.Text = row.Cells[5].Value.ToString().Replace(" ", "").Replace("₴", "");
                 checkBox1.Checked = Boolean.Parse(row.Cells[6].Value.ToString());
                 checkBox2.Checked = Boolean.Parse(row.Cells[7].Value.ToString());
-
-                toolStripStatusLabel1.Text = ploters[selectedRow].GeneralInfo();
-                toolStripStatusLabel2.Text = ploters[selectedRow].PricePerYear();
             }
         }
 

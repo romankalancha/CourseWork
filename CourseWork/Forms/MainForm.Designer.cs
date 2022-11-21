@@ -36,20 +36,15 @@
             this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.miImport = new System.Windows.Forms.ToolStripMenuItem();
             this.miExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.miOject = new System.Windows.Forms.ToolStripMenuItem();
             this.miAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.miEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.miDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.miClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.miFilter = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
@@ -69,9 +64,6 @@
             this.mictDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.mictExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnEdit2 = new System.Windows.Forms.ToolStripButton();
@@ -97,14 +89,13 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsMenuDataGrid.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip3
             // 
-            this.menuStrip3.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip3.BackColor = System.Drawing.Color.Gray;
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miFile,
             this.miOject});
@@ -113,32 +104,28 @@
             // 
             // miFile
             // 
+            this.miFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.miFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miSave,
-            this.toolStripMenuItem2,
             this.miImport,
             this.miExport,
-            this.toolStripMenuItem1,
             this.miAbout,
-            this.toolStripMenuItem3,
             this.miExit});
             this.miFile.Name = "miFile";
             resources.ApplyResources(this.miFile, "miFile");
             // 
             // miSave
             // 
+            this.miSave.BackColor = System.Drawing.Color.Gray;
             this.miSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.miSave, "miSave");
             this.miSave.Name = "miSave";
             this.miSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            // 
             // miImport
             // 
+            this.miImport.BackColor = System.Drawing.Color.Gray;
             this.miImport.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.miImport, "miImport");
             this.miImport.Name = "miImport";
@@ -146,30 +133,23 @@
             // 
             // miExport
             // 
+            this.miExport.BackColor = System.Drawing.Color.Gray;
             this.miExport.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.miExport, "miExport");
             this.miExport.Name = "miExport";
             this.miExport.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            // 
             // miAbout
             // 
+            this.miAbout.BackColor = System.Drawing.Color.Gray;
             this.miAbout.Image = global::CourseWork.Properties.Resources.about_icon;
             resources.ApplyResources(this.miAbout, "miAbout");
             this.miAbout.Name = "miAbout";
             this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
-            // 
             // miExit
             // 
+            this.miExit.BackColor = System.Drawing.Color.Gray;
             this.miExit.Image = global::CourseWork.Properties.Resources.exit_icon;
             resources.ApplyResources(this.miExit, "miExit");
             this.miExit.Name = "miExit";
@@ -177,19 +157,20 @@
             // 
             // miOject
             // 
+            this.miOject.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.miOject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.miOject.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miAdd,
             this.miEdit,
-            this.toolStripMenuItem4,
             this.miDelete,
             this.miClear,
-            this.toolStripMenuItem5,
             this.miFilter});
             this.miOject.Name = "miOject";
             resources.ApplyResources(this.miOject, "miOject");
             // 
             // miAdd
             // 
+            this.miAdd.BackColor = System.Drawing.Color.Gray;
             this.miAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.miAdd, "miAdd");
             this.miAdd.Name = "miAdd";
@@ -197,18 +178,15 @@
             // 
             // miEdit
             // 
+            this.miEdit.BackColor = System.Drawing.Color.Gray;
             this.miEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miEdit, "miEdit");
             this.miEdit.Name = "miEdit";
             this.miEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
-            // 
             // miDelete
             // 
+            this.miDelete.BackColor = System.Drawing.Color.Gray;
             this.miDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.miDelete, "miDelete");
             this.miDelete.Name = "miDelete";
@@ -216,17 +194,14 @@
             // 
             // miClear
             // 
+            this.miClear.BackColor = System.Drawing.Color.Gray;
             this.miClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.miClear, "miClear");
             this.miClear.Name = "miClear";
             // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
-            // 
             // miFilter
             // 
+            this.miFilter.BackColor = System.Drawing.Color.Gray;
             this.miFilter.Image = global::CourseWork.Properties.Resources.fither_icon;
             resources.ApplyResources(this.miFilter, "miFilter");
             this.miFilter.Name = "miFilter";
@@ -235,8 +210,9 @@
             // toolStrip1
             // 
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.BackColor = System.Drawing.Color.Gray;
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 5, 2);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdd,
             this.btnEdit,
@@ -282,14 +258,14 @@
             this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
             this.btnOpenFromText.Name = "btnOpenFromText";
-            this.btnOpenFromText.Click += new System.EventHandler(this.btnOpenFromText_Click);
+            this.btnOpenFromText.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
             // btnSaveAsText
             // 
             this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
             this.btnSaveAsText.Name = "btnSaveAsText";
-            this.btnSaveAsText.Click += new System.EventHandler(this.btnSaveAsText_Click);
+            this.btnSaveAsText.Click += new System.EventHandler(this.btnOpenFromText_Click);
             // 
             // toolStripLabel2
             // 
@@ -299,6 +275,7 @@
             // 
             // tstbSearch
             // 
+            this.tstbSearch.ForeColor = System.Drawing.SystemColors.WindowText;
             resources.ApplyResources(this.tstbSearch, "tstbSearch");
             this.tstbSearch.Name = "tstbSearch";
             this.tstbSearch.TextChanged += new System.EventHandler(this.tstbSearch_TextChanged);
@@ -308,7 +285,9 @@
             this.btnBack.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             resources.ApplyResources(this.btnBack, "btnBack");
             this.btnBack.Image = global::CourseWork.Properties.Resources.back_icon;
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnBack.Name = "btnBack";
+            this.btnBack.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // dataGridView1
@@ -401,27 +380,6 @@
             this.mictExit.Name = "mictExit";
             this.mictExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // statusStrip1
-            // 
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
-            this.statusStrip1.GripMargin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.SizingGrip = false;
-            // 
-            // toolStripStatusLabel1
-            // 
-            resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.DoubleClickEnabled = true;
-            resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.toolStrip2);
@@ -445,13 +403,18 @@
             // 
             // toolStrip2
             // 
+            this.toolStrip2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.toolStrip2.AllowMerge = false;
+            this.toolStrip2.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.toolStrip2, "toolStrip2");
+            this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(20, 2, 20, 2);
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnEdit2,
             this.toolStripSeparator2,
             this.btnReload,
             this.toolStripSeparator4,
             this.btnSave});
-            resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Name = "toolStrip2";
             // 
             // btnEdit2
@@ -464,6 +427,7 @@
             // 
             // toolStripSeparator2
             // 
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
@@ -565,10 +529,9 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip3);
@@ -582,8 +545,6 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.cmsMenuDataGrid.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -610,21 +571,13 @@
         private ToolStripMenuItem miSave;
         private ToolStripMenuItem miImport;
         private ToolStripMenuItem miExport;
-        private ToolStripSeparator toolStripMenuItem2;
-        private ToolStripSeparator toolStripMenuItem1;
         private ToolStripMenuItem miAbout;
-        private ToolStripSeparator toolStripMenuItem3;
         private ToolStripMenuItem miAdd;
         private ToolStripMenuItem miEdit;
-        private ToolStripSeparator toolStripMenuItem4;
         private ToolStripMenuItem miDelete;
         private ToolStripMenuItem miClear;
-        private ToolStripSeparator toolStripMenuItem5;
         private ToolStripMenuItem miFilter;
         private ToolStripMenuItem miExit;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
-        private ToolStripStatusLabel toolStripStatusLabel2;
         private ContextMenuStrip cmsMenuDataGrid;
         private ToolStripMenuItem mictAdd;
         private ToolStripMenuItem mictEdit;

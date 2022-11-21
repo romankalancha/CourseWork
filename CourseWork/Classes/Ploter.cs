@@ -1,4 +1,4 @@
-﻿namespace CourseWork
+﻿namespace CourseWork.Classes
 {
     public class Ploter
     {
@@ -17,7 +17,7 @@
 
         public Ploter(string name, string company, string model, int countColors, int weight, int price, bool winSup, bool macSup)
         {
-            Name = name; 
+            Name = name;
             Company = company;
             Model = model;
             CountColors = countColors;
@@ -25,15 +25,6 @@
             Price = price;
             WinSupport = winSup;
             MacSupport = macSup;
-        }
-        public string GeneralInfo()
-        {
-            return $"Назва: {Name}, Модель: {Model}";
-        }
-        public string PricePerYear()
-        {
-            double res = Price / 12;
-            return "Ціна в кредит на 12 місяців: " + res.ToString() + "₴";
         }
     }
 }
