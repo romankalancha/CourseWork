@@ -34,11 +34,6 @@
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.miImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.miExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.miOject = new System.Windows.Forms.ToolStripMenuItem();
             this.miAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +42,6 @@
             this.miDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.miClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.miFilter = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
@@ -55,8 +49,6 @@
             this.btnDel = new System.Windows.Forms.ToolStripButton();
             this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnOpenFromText = new System.Windows.Forms.ToolStripButton();
-            this.btnSaveAsText = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tstbSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -69,9 +61,6 @@
             this.mictDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.mictExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnEdit2 = new System.Windows.Forms.ToolStripButton();
@@ -80,24 +69,17 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tb_Price = new System.Windows.Forms.TextBox();
-            this.tb_Weight = new System.Windows.Forms.TextBox();
-            this.tb_CountColors = new System.Windows.Forms.TextBox();
-            this.tb_Model = new System.Windows.Forms.TextBox();
-            this.tb_Country = new System.Windows.Forms.TextBox();
+            this.tb_Producer = new System.Windows.Forms.TextBox();
             this.tb_Name = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbWidth = new System.Windows.Forms.TextBox();
             this.menuStrip3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsMenuDataGrid.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -115,11 +97,6 @@
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miSave,
             this.toolStripMenuItem2,
-            this.miImport,
-            this.miExport,
-            this.toolStripMenuItem1,
-            this.miAbout,
-            this.toolStripMenuItem3,
             this.miExit});
             this.miFile.Name = "miFile";
             resources.ApplyResources(this.miFile, "miFile");
@@ -136,37 +113,6 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
-            // miImport
-            // 
-            this.miImport.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
-            resources.ApplyResources(this.miImport, "miImport");
-            this.miImport.Name = "miImport";
-            this.miImport.Click += new System.EventHandler(this.btnOpenFromText_Click);
-            // 
-            // miExport
-            // 
-            this.miExport.Image = global::CourseWork.Properties.Resources.save_file_icon;
-            resources.ApplyResources(this.miExport, "miExport");
-            this.miExport.Name = "miExport";
-            this.miExport.Click += new System.EventHandler(this.btnSaveAsText_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            // 
-            // miAbout
-            // 
-            this.miAbout.Image = global::CourseWork.Properties.Resources.about_icon;
-            resources.ApplyResources(this.miAbout, "miAbout");
-            this.miAbout.Name = "miAbout";
-            this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
-            // 
             // miExit
             // 
             this.miExit.Image = global::CourseWork.Properties.Resources.edit_icon;
@@ -182,8 +128,7 @@
             this.toolStripMenuItem4,
             this.miDelete,
             this.miClear,
-            this.toolStripMenuItem5,
-            this.miFilter});
+            this.toolStripMenuItem5});
             this.miOject.Name = "miOject";
             resources.ApplyResources(this.miOject, "miOject");
             // 
@@ -224,13 +169,6 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             // 
-            // miFilter
-            // 
-            this.miFilter.Image = global::CourseWork.Properties.Resources.fither_icon;
-            resources.ApplyResources(this.miFilter, "miFilter");
-            this.miFilter.Name = "miFilter";
-            this.miFilter.Click += new System.EventHandler(this.miFilter_Click);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -240,8 +178,6 @@
             this.btnDel,
             this.btnClear,
             this.toolStripSeparator3,
-            this.btnOpenFromText,
-            this.btnSaveAsText,
             this.toolStripSeparator5,
             this.toolStripLabel2,
             this.tstbSearch,
@@ -290,22 +226,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // btnOpenFromText
-            // 
-            this.btnOpenFromText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
-            resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
-            this.btnOpenFromText.Name = "btnOpenFromText";
-            this.btnOpenFromText.Click += new System.EventHandler(this.btnOpenFromText_Click);
-            // 
-            // btnSaveAsText
-            // 
-            this.btnSaveAsText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
-            resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
-            this.btnSaveAsText.Name = "btnSaveAsText";
-            this.btnSaveAsText.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
             // toolStripSeparator5
             // 
@@ -397,41 +317,16 @@
             this.mictExit.Name = "mictExit";
             this.mictExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
-            this.statusStrip1.Name = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.DoubleClickEnabled = true;
-            resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tbWidth);
             this.groupBox1.Controls.Add(this.toolStrip2);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.tb_Price);
-            this.groupBox1.Controls.Add(this.tb_Weight);
-            this.groupBox1.Controls.Add(this.tb_CountColors);
-            this.groupBox1.Controls.Add(this.tb_Model);
-            this.groupBox1.Controls.Add(this.tb_Country);
+            this.groupBox1.Controls.Add(this.tb_Producer);
             this.groupBox1.Controls.Add(this.tb_Name);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
@@ -487,79 +382,47 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // checkBox2
-            // 
-            resources.ApplyResources(this.checkBox2, "checkBox2");
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // tb_Price
             // 
             resources.ApplyResources(this.tb_Price, "tb_Price");
             this.tb_Price.Name = "tb_Price";
             // 
-            // tb_Weight
+            // tb_Producer
             // 
-            resources.ApplyResources(this.tb_Weight, "tb_Weight");
-            this.tb_Weight.Name = "tb_Weight";
-            // 
-            // tb_CountColors
-            // 
-            resources.ApplyResources(this.tb_CountColors, "tb_CountColors");
-            this.tb_CountColors.Name = "tb_CountColors";
-            // 
-            // tb_Model
-            // 
-            resources.ApplyResources(this.tb_Model, "tb_Model");
-            this.tb_Model.Name = "tb_Model";
-            // 
-            // tb_Country
-            // 
-            resources.ApplyResources(this.tb_Country, "tb_Country");
-            this.tb_Country.Name = "tb_Country";
+            resources.ApplyResources(this.tb_Producer, "tb_Producer");
+            this.tb_Producer.Name = "tb_Producer";
             // 
             // tb_Name
             // 
             resources.ApplyResources(this.tb_Name, "tb_Name");
             this.tb_Name.Name = "tb_Name";
             // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // tbWidth
+            // 
+            resources.ApplyResources(this.tbWidth, "tbWidth");
+            this.tbWidth.Name = "tbWidth";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip3);
@@ -572,8 +435,6 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.cmsMenuDataGrid.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -595,30 +456,19 @@
         private ToolStripButton btnDel;
         private ToolStripButton btnClear;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripButton btnOpenFromText;
-        private ToolStripButton btnSaveAsText;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripLabel toolStripLabel2;
         private ToolStripButton btnExit;
         private ToolStripTextBox tstbSearch;
         private ToolStripMenuItem miSave;
-        private ToolStripMenuItem miImport;
-        private ToolStripMenuItem miExport;
         private ToolStripSeparator toolStripMenuItem2;
-        private ToolStripSeparator toolStripMenuItem1;
-        private ToolStripMenuItem miAbout;
-        private ToolStripSeparator toolStripMenuItem3;
         private ToolStripMenuItem miAdd;
         private ToolStripMenuItem miEdit;
         private ToolStripSeparator toolStripMenuItem4;
         private ToolStripMenuItem miDelete;
         private ToolStripMenuItem miClear;
         private ToolStripSeparator toolStripMenuItem5;
-        private ToolStripMenuItem miFilter;
         private ToolStripMenuItem miExit;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
-        private ToolStripStatusLabel toolStripStatusLabel2;
         private ContextMenuStrip cmsMenuDataGrid;
         private ToolStripMenuItem mictAdd;
         private ToolStripMenuItem mictEdit;
@@ -628,17 +478,9 @@
         private ToolStripMenuItem mictExit;
         private GroupBox groupBox1;
         private TextBox tb_Name;
-        private TextBox tb_Country;
+        private TextBox tb_Producer;
         private TextBox tb_Price;
-        private TextBox tb_Weight;
-        private TextBox tb_CountColors;
-        private TextBox tb_Model;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
         private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
         private Label label2;
         private Label label1;
         private ToolStrip toolStrip2;
@@ -647,5 +489,7 @@
         private ToolStripButton btnReload;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btnSave;
+        private Label label3;
+        private TextBox tbWidth;
     }
 }

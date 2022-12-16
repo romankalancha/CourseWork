@@ -9,7 +9,7 @@ namespace CourseWork
 {
     internal class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PloterDB;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Equipment;Integrated Security=True");
         
         public void openConnection()
         {

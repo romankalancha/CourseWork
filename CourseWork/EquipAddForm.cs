@@ -13,10 +13,10 @@ using System.Data.SqlClient;
 
 namespace CourseWork
 {
-    public partial class PloterForm : Form
+    public partial class EquipAddForm : Form
     {
         DataBase database = new DataBase();
-        public PloterForm()
+        public EquipAddForm()
         {
             InitializeComponent();
         }
@@ -33,23 +33,16 @@ namespace CourseWork
             database.openConnection();
 
             var name = tbName.Text;
-            var country = tbCountry.Text;
-            var model = tbModel.Text;
-
-            var winSup = cbWin.Checked;
-            var macSup = cbMac.Checked;
-
-            int countColors;
-            int weight;
-            int price;
-            if (int.TryParse(tbCColors.Text, out countColors) && int.TryParse(tbWeight.Text, out weight) && int.TryParse(tbPrice.Text, out price))
+            var producer = tbProducer.Text;
+            int price, width;
+            if (int.TryParse(tbPrice.Text, out price) && int.TryParse(tb_width.Text, out width))
             {
-                var addQuery = $"insert into Products (Name, Country, Model, CountColors, Weight, Price, WinSup, MacSup) values ('{name}', '{country}', '{model}', '{countColors}', '{weight}', '{price}', '{winSup}', '{macSup}')";
+                var addQuery = $"insert into equip (name, price, producer, keybord_width) values ('{name}', '{price}', '{producer}', '{width}')";
 
                 var command = new SqlCommand(addQuery, database.getConnection());
                 command.ExecuteNonQuery();
 
-                Ploter p = new Ploter(name, country, model, countColors, weight, price, winSup, macSup);
+                Equip p = new Equip(name,price,producer);
                 MessageBox.Show("Записали", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
