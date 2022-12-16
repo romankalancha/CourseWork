@@ -16,17 +16,17 @@ namespace CourseWork
         ModifiedNew,
         Deleted
     }
-     
+
     public partial class MainForm : Form
     {
-       DataBase database = new DataBase();
-       string TableDB = "dbo.ploter";
-       string TableDB_company = "dbo.company";
-       string TableDB_model = "dbo.ploterModel";
-       List<Ploter> ploters = new List<Ploter>();
-       int selectedRow;
+        DataBase database = new DataBase();
+        string TableDB = "dbo.ploter";
+        string TableDB_company = "dbo.company";
+        string TableDB_model = "dbo.ploterModel";
+        List<Ploter> ploters = new List<Ploter>();
+        int selectedRow;
 
-       public MainForm()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -55,7 +55,7 @@ namespace CourseWork
             if (iForm.ShowDialog() == DialogResult.OK)
             {
                 iForm.Close();
-               
+
                 List<Ploter> importData = importData = iForm.importData;
                 addPlotersFromFile(importData, (dataImportState)iForm.dImportState);
             }
@@ -107,13 +107,13 @@ namespace CourseWork
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
             dgw.Rows.Add(
-                record.GetString(0), 
-                record.GetString(1), 
-                record.GetString(2), 
-                record.GetInt32(3), 
-                record.GetInt32(4) + " Кг.", 
-                string.Format("{0:### ### ###}", record.GetInt32(5)) + " ₴", 
-                record.GetBoolean(6), 
+                record.GetString(0),
+                record.GetString(1),
+                record.GetString(2),
+                record.GetInt32(3),
+                record.GetInt32(4) + " Кг.",
+                string.Format("{0:### ### ###}", record.GetInt32(5)) + " ₴",
+                record.GetBoolean(6),
                 record.GetBoolean(7),
                 record.GetInt32(8),
                 RowState.ModifiedNew
@@ -263,7 +263,7 @@ namespace CourseWork
                                             $"CountColors='{countColors}', Weight='{weight}', Price='{price}', WinSup='{winSup}', MacSup='{macSup}' WHERE id = '{id}' " +
                                             $"UPDATE {TableDB_company} SET Name='{company}' WHERE fk_id_company= '{id}'" +
                                             $"UPDATE {TableDB_model} SET Name='{model}' WHERE fk_id_model='{id}'";
-                    var command = new SqlCommand(changeQuery,database.getConnection());
+                    var command = new SqlCommand(changeQuery, database.getConnection());
                     command.ExecuteNonQuery();
                 }
             }
@@ -316,7 +316,7 @@ namespace CourseWork
                 case dataImportState.rewrite:
                     deleteAll();
                     goto case dataImportState.addAsNew;
-                   break;
+                    break;
                 case dataImportState.addAsNew:
                     database.openConnection();
                     foreach (var ploter in importData)

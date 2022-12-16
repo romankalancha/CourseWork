@@ -23,14 +23,14 @@ namespace CourseWork
         {
             dataGridView1.Columns.Add("Name", "Назва");
             dataGridView1.Columns.Add("Country", "Країна");
-            dataGridView1.Columns.Add("CountColors", "Опис");
+            dataGridView1.Columns.Add("Description", "Опис");
             dataGridView1.Columns[2].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridView1.Columns[2].Width = 300;
 
             dataGridView1.Columns.Add("id", "ID");
             dataGridView1.Columns.Add("IsNew", String.Empty);
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[3].Visible = true;
+            dataGridView1.Columns[4].Visible = true;
 
             dataGridView1.RowTemplate.Height = 80;
 
@@ -104,7 +104,7 @@ namespace CourseWork
                     int id = dataGridView1.Rows[index].Cells[3].Value.GetHashCode();
 
                     var changeQuery = $"UPDATE {TableDB_company} SET Name='{name}', Country='{country}', Description='{description}' WHERE fk_id_company = '{id}' " +
-                                            $"UPDATE {TableDB} SET Company='{name}' WHERE id='{id}' ";
+                                            $"UPDATE {TableDB} SET Company='{name}' WHERE id='{id}'";
                     var command = new SqlCommand(changeQuery,database.getConnection());
                     command.ExecuteNonQuery();
                 }

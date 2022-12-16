@@ -95,7 +95,7 @@
             // 
             // menuStrip3
             // 
-            this.menuStrip3.BackColor = System.Drawing.Color.Gray;
+            this.menuStrip3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miFile,
             this.miOject});
@@ -104,7 +104,7 @@
             // 
             // miFile
             // 
-            this.miFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.miFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
             this.miFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miSave,
@@ -112,12 +112,14 @@
             this.miExport,
             this.miAbout,
             this.miExit});
+            this.miFile.ForeColor = System.Drawing.Color.White;
             this.miFile.Name = "miFile";
             resources.ApplyResources(this.miFile, "miFile");
             // 
             // miSave
             // 
-            this.miSave.BackColor = System.Drawing.Color.Gray;
+            this.miSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miSave.ForeColor = System.Drawing.Color.White;
             this.miSave.Image = global::CourseWork.Properties.Resources.save_icon;
             resources.ApplyResources(this.miSave, "miSave");
             this.miSave.Name = "miSave";
@@ -125,7 +127,8 @@
             // 
             // miImport
             // 
-            this.miImport.BackColor = System.Drawing.Color.Gray;
+            this.miImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miImport.ForeColor = System.Drawing.Color.White;
             this.miImport.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.miImport, "miImport");
             this.miImport.Name = "miImport";
@@ -133,7 +136,8 @@
             // 
             // miExport
             // 
-            this.miExport.BackColor = System.Drawing.Color.Gray;
+            this.miExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miExport.ForeColor = System.Drawing.Color.White;
             this.miExport.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.miExport, "miExport");
             this.miExport.Name = "miExport";
@@ -141,7 +145,8 @@
             // 
             // miAbout
             // 
-            this.miAbout.BackColor = System.Drawing.Color.Gray;
+            this.miAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miAbout.ForeColor = System.Drawing.Color.White;
             this.miAbout.Image = global::CourseWork.Properties.Resources.about_icon;
             resources.ApplyResources(this.miAbout, "miAbout");
             this.miAbout.Name = "miAbout";
@@ -149,7 +154,8 @@
             // 
             // miExit
             // 
-            this.miExit.BackColor = System.Drawing.Color.Gray;
+            this.miExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miExit.ForeColor = System.Drawing.Color.White;
             this.miExit.Image = global::CourseWork.Properties.Resources.exit_icon;
             resources.ApplyResources(this.miExit, "miExit");
             this.miExit.Name = "miExit";
@@ -158,19 +164,21 @@
             // miOject
             // 
             this.miOject.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.miOject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.miOject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
             this.miOject.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miAdd,
             this.miEdit,
             this.miDelete,
             this.miClear,
             this.miFilter});
+            this.miOject.ForeColor = System.Drawing.Color.White;
             this.miOject.Name = "miOject";
             resources.ApplyResources(this.miOject, "miOject");
             // 
             // miAdd
             // 
-            this.miAdd.BackColor = System.Drawing.Color.Gray;
+            this.miAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miAdd.ForeColor = System.Drawing.Color.White;
             this.miAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.miAdd, "miAdd");
             this.miAdd.Name = "miAdd";
@@ -178,7 +186,8 @@
             // 
             // miEdit
             // 
-            this.miEdit.BackColor = System.Drawing.Color.Gray;
+            this.miEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miEdit.ForeColor = System.Drawing.Color.White;
             this.miEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.miEdit, "miEdit");
             this.miEdit.Name = "miEdit";
@@ -186,7 +195,8 @@
             // 
             // miDelete
             // 
-            this.miDelete.BackColor = System.Drawing.Color.Gray;
+            this.miDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miDelete.ForeColor = System.Drawing.Color.White;
             this.miDelete.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.miDelete, "miDelete");
             this.miDelete.Name = "miDelete";
@@ -194,14 +204,16 @@
             // 
             // miClear
             // 
-            this.miClear.BackColor = System.Drawing.Color.Gray;
+            this.miClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miClear.ForeColor = System.Drawing.Color.White;
             this.miClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.miClear, "miClear");
             this.miClear.Name = "miClear";
             // 
             // miFilter
             // 
-            this.miFilter.BackColor = System.Drawing.Color.Gray;
+            this.miFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
+            this.miFilter.ForeColor = System.Drawing.Color.White;
             this.miFilter.Image = global::CourseWork.Properties.Resources.fither_icon;
             resources.ApplyResources(this.miFilter, "miFilter");
             this.miFilter.Name = "miFilter";
@@ -210,7 +222,7 @@
             // toolStrip1
             // 
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.BackColor = System.Drawing.Color.Gray;
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 5, 2);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -227,56 +239,64 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::CourseWork.Properties.Resources.add_icon;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             resources.ApplyResources(this.btnEdit, "btnEdit");
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Image = global::CourseWork.Properties.Resources.edit_icon;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 
-            this.btnDel.Image = global::CourseWork.Properties.Resources.minus_icon;
             resources.ApplyResources(this.btnDel, "btnDel");
+            this.btnDel.ForeColor = System.Drawing.Color.White;
+            this.btnDel.Image = global::CourseWork.Properties.Resources.minus_icon;
             this.btnDel.Name = "btnDel";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             resources.ApplyResources(this.btnClear, "btnClear");
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = global::CourseWork.Properties.Resources.clear_icon;
             this.btnClear.Name = "btnClear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnOpenFromText
             // 
-            this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             resources.ApplyResources(this.btnOpenFromText, "btnOpenFromText");
+            this.btnOpenFromText.ForeColor = System.Drawing.Color.White;
+            this.btnOpenFromText.Image = global::CourseWork.Properties.Resources.open_from_text_icon;
             this.btnOpenFromText.Name = "btnOpenFromText";
             this.btnOpenFromText.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
             // btnSaveAsText
             // 
-            this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
             resources.ApplyResources(this.btnSaveAsText, "btnSaveAsText");
+            this.btnSaveAsText.ForeColor = System.Drawing.Color.White;
+            this.btnSaveAsText.Image = global::CourseWork.Properties.Resources.save_file_icon;
             this.btnSaveAsText.Name = "btnSaveAsText";
             this.btnSaveAsText.Click += new System.EventHandler(this.btnOpenFromText_Click);
             // 
             // toolStripLabel2
             // 
+            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.White;
             this.toolStripLabel2.Image = global::CourseWork.Properties.Resources.search_icon;
             this.toolStripLabel2.Name = "toolStripLabel2";
-            resources.ApplyResources(this.toolStripLabel2, "toolStripLabel2");
             // 
             // tstbSearch
             // 
-            this.tstbSearch.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tstbSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             resources.ApplyResources(this.tstbSearch, "tstbSearch");
+            this.tstbSearch.ForeColor = System.Drawing.Color.White;
             this.tstbSearch.Name = "tstbSearch";
             this.tstbSearch.TextChanged += new System.EventHandler(this.tstbSearch_TextChanged);
             // 
@@ -284,6 +304,7 @@
             // 
             this.btnBack.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             resources.ApplyResources(this.btnBack, "btnBack");
+            this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = global::CourseWork.Properties.Resources.back_icon;
             this.btnBack.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnBack.Name = "btnBack";
@@ -398,6 +419,7 @@
             this.groupBox1.Controls.Add(this.tb_Company);
             this.groupBox1.Controls.Add(this.tb_Name);
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -405,7 +427,7 @@
             // 
             this.toolStrip2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.toolStrip2.AllowMerge = false;
-            this.toolStrip2.BackColor = System.Drawing.Color.Gray;
+            this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
             resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.GripMargin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -455,73 +477,92 @@
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Name = "label6";
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Name = "label5";
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Name = "label4";
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             // 
             // checkBox2
             // 
             resources.ApplyResources(this.checkBox2, "checkBox2");
+            this.checkBox2.ForeColor = System.Drawing.Color.White;
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
             resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // tb_Price
             // 
+            this.tb_Price.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_Price.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_Price, "tb_Price");
             this.tb_Price.Name = "tb_Price";
             // 
             // tb_Weight
             // 
+            this.tb_Weight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_Weight.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_Weight, "tb_Weight");
             this.tb_Weight.Name = "tb_Weight";
             // 
             // tb_CountColors
             // 
+            this.tb_CountColors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_CountColors.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_CountColors, "tb_CountColors");
             this.tb_CountColors.Name = "tb_CountColors";
             // 
             // tb_Model
             // 
+            this.tb_Model.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_Model.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_Model, "tb_Model");
             this.tb_Model.Name = "tb_Model";
             // 
             // tb_Company
             // 
+            this.tb_Company.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_Company.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_Company, "tb_Company");
             this.tb_Company.Name = "tb_Company";
             // 
             // tb_Name
             // 
-            this.tb_Name.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.tb_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.tb_Name.ForeColor = System.Drawing.Color.White;
             resources.ApplyResources(this.tb_Name, "tb_Name");
             this.tb_Name.Name = "tb_Name";
             // 
@@ -529,7 +570,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(35)))));
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);

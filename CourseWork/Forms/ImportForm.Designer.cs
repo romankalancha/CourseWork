@@ -52,6 +52,7 @@
             this.groupBox1.Controls.Add(this.rbAddAsNew);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(2, 1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(338, 121);
@@ -69,27 +70,32 @@
             // 
             // btnOk
             // 
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.btnOk.ForeColor = System.Drawing.Color.White;
             this.btnOk.Location = new System.Drawing.Point(224, 83);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(103, 32);
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnSelectFile
             // 
+            this.btnSelectFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(51)))));
+            this.btnSelectFile.ForeColor = System.Drawing.Color.White;
             this.btnSelectFile.Location = new System.Drawing.Point(224, 49);
             this.btnSelectFile.Name = "btnSelectFile";
             this.btnSelectFile.Size = new System.Drawing.Size(103, 25);
             this.btnSelectFile.TabIndex = 5;
             this.btnSelectFile.Text = "Вибрати...";
-            this.btnSelectFile.UseVisualStyleBackColor = true;
+            this.btnSelectFile.UseVisualStyleBackColor = false;
             this.btnSelectFile.Click += new System.EventHandler(this.button1_Click);
             // 
             // rbRewrite
             // 
             this.rbRewrite.AutoSize = true;
+            this.rbRewrite.ForeColor = System.Drawing.Color.White;
             this.rbRewrite.Location = new System.Drawing.Point(6, 80);
             this.rbRewrite.Name = "rbRewrite";
             this.rbRewrite.Size = new System.Drawing.Size(126, 25);
@@ -102,6 +108,7 @@
             // rbAddAsNew
             // 
             this.rbAddAsNew.AutoSize = true;
+            this.rbAddAsNew.ForeColor = System.Drawing.Color.White;
             this.rbAddAsNew.Location = new System.Drawing.Point(6, 49);
             this.rbAddAsNew.Name = "rbAddAsNew";
             this.rbAddAsNew.Size = new System.Drawing.Size(146, 25);
@@ -114,6 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 21);
@@ -125,6 +133,7 @@
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(343, 126);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
